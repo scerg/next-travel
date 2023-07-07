@@ -1,0 +1,17 @@
+.richText {
+  & p {
+    font-size: 15px;
+    line-height: 140%;
+    margin: 20px 0;
+  }
+
+  & h2 {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.42px;
+    line-height: 130%;
+    padding: 0;
+    text-align: center;
+  }
+}

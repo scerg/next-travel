@@ -1,0 +1,36 @@
+.btn {
+  background: $light-blue;
+  border: none;
+  border-radius: 20px;
+  color: $white;
+  cursor: pointer;
+  font-size: 17px;
+  letter-spacing: 0.17px;
+  line-height: 130%;
+  padding: 13px 20px;
+  width: 250px;
+
+  &:active {
+    background: $sand;
+  }
+
+  &.purple {
+    background: $purple;
+  }
+
+  &.light-blue {
+    background: $light-blue;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn {
+    &.light-blue:hover {
+      background: $dark-blue;
+    }
+
+    &.purple:hover {
+      background: $dark-purple;
+    }
+  }
+}

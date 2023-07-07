@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  max-width: 100vw;
+}
+
+body {
+  background: $white;
+  color: $dark;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1 0 auto;
+  font-size: 17px;
+  letter-spacing: 0.17px;
+  margin: 0 auto;
+  width: 1680px;
+
+  &::after {
+    background: linear-gradient(180deg, #fff 0%, #ffeee9 85.21%);
+    bottom: 0;
+    content: "";
+    height: 50%;
+    left: 0;
+    opacity: 0.4;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+main ul li::marker {
+  color: $purple;
+  font-size: 1.5em;
+}
+
+section {
+  margin: 100px 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 64px;
+  line-height: 100%;
+  padding: 0 0 48px;
+}
+
+h2 {
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 200;
+  letter-spacing: 0.28px;
+  line-height: 130%;
+  padding: 0 0 40px;
+}
+
+h3 {
+  font-size: 17px;
+  letter-spacing: 0.17px;
+  line-height: 130%;
+  padding: 0 0 40px;
+}
+
+input {
+  border: 1px solid $sand;
+  border-radius: 20px;
+  color: $dark;
+  display: inline-block;
+  font-size: 17px;
+  letter-spacing: 0.17px;
+  line-height: 130%;
+  margin: 0 0 20px;
+  outline: none;
+  padding: 12px 20px;
+  vertical-align: top;
+  width: 100%;
+}
+
+.image img {
+  height: auto;
+  max-width: 100%;
+}
+
+#nprogress {
+  & .bar {
+    background: $purple;
+    height: 3px;
+  }
+
+  & .peg {
+    box-shadow: 0 0 10px $purple, 0 0 5px $purple;
+  }
+
+  & .spinner-icon {
+    border-top-color: $purple;
+    border-left-color: $purple;
+  }
+}
+
+@media (width <= 1700px) {
+  main {
+    margin: 0 20px;
+    width: auto;
+  }
+}
+
+@media (width < 1280px) {
+}
+
+@media (width < 1024px) {
+  main {
+    font-size: 15px;
+  }
+}
+
+@media (width <= 768px) {
+  h1 {
+    font-size: 46px;
+    padding: 0 0 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+    padding: 0 0 26px;
+  }
+
+  h3 {
+    font-size: 15px;
+    padding: 0 0 26px;
+  }
+}
+
+@media (width < 768px) {
+}

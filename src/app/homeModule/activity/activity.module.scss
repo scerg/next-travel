@@ -1,0 +1,30 @@
+.activity {
+  color: #573104;
+}
+
+.items {
+  display: grid;
+  grid-gap: 100px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.item {
+  text-align: center;
+}
+
+.text {
+  line-height: 130%;
+  padding: 20px 0 0;
+}
+
+@media (width < 1280px) {
+  .items {
+    grid-gap: 20px;
+  }
+}
+
+@media (width < 768px) {
+  .items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

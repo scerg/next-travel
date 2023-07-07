@@ -1,0 +1,45 @@
+.slick-prev.prevArrow,
+.slick-next.nextArrow {
+  align-items: center;
+  background: $purple;
+  border-radius: 80px 160px 160px 80px;
+  bottom: -85px;
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  top: auto;
+  width: 48px;
+  z-index: 9;
+}
+
+.slick-prev.prevArrow {
+  border-radius: 160px 80px 80px 160px;
+  left: 50%;
+  margin-left: -120px;
+}
+
+.slick-next.nextArrow {
+  margin-right: -120px;
+  right: 50%;
+}
+
+.slick-prev.prevArrow img {
+  transform: scaleX(-1);
+}
+
+.slick-prev.prevArrow::before,
+.slick-next.nextArrow::before {
+  content: none;
+}
+
+.slick-prev.prevArrow:focus,
+.slick-next.nextArrow:focus {
+  background: $light-blue;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .slick-prev.prevArrow:hover,
+  .slick-next.nextArrow:hover {
+    background: $light-blue;
+  }
+}

@@ -1,0 +1,28 @@
+.footer {
+  background: $dark-blue;
+  flex: 0 0 auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.items {
+  color: $white;
+  list-style: none;
+  padding: 27px;
+
+  & li {
+    font-size: 17px;
+    letter-spacing: 0.17px;
+    line-height: 130%;
+    padding: 10px 40px;
+  }
+}
+
+@media (width < 768px) {
+  .items {
+    padding: 27px 0;
+  }
+}
