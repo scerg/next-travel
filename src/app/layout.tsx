@@ -6,12 +6,11 @@ import { API } from "@/app/utils/api";
 import { fetchAPI } from "@/app/utils/fetch-api";
 import { getMetadata } from "@/app/utils/helpers";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import React, { Suspense } from "react";
 
 import "./globals.scss";
-
-const inter = Inter({ subsets: ["cyrillic", "latin"] });
+import inter from "./shared/fonts";
+import ThemeProvider from "./shared/themeProvider";
 
 async function getHomePage(): Promise<HomePageProps> {
   const path = API.homePage.page;
@@ -37,14 +36,16 @@ export default async function RootLayout({
   return (
     <html lang="ru">
       <body className={inter.className}>
-        <div className="wrapper">
-          <Header data={data} />
-          <main>{children}</main>
-          <Footer links={data?.navbar?.links} />
-          <Suspense fallback={null}>
-            <NavigationEvents />
-          </Suspense>
-        </div>
+        <ThemeProvider>
+          <div className="wrapper">
+            <Header data={data} />
+            <main>{children}</main>
+            <Footer links={data?.navbar?.links} />
+            <Suspense fallback={null}>
+              <NavigationEvents />
+            </Suspense>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
