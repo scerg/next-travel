@@ -34,12 +34,12 @@
 
 .slick-prev.prevArrow:focus,
 .slick-next.nextArrow:focus {
-  background: $light-blue;
+  background: $lightBlue;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .slick-prev.prevArrow:hover,
   .slick-next.nextArrow:hover {
-    background: $light-blue;
+    background: $lightBlue;
   }
 }

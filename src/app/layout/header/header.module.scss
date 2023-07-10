@@ -1,9 +1,11 @@
+$navHeight: 80px;
+
 .header {
   background: #51bccc;
 
   & nav {
     background: #51bccc;
-    height: $nav-height;
+    height: $navHeight;
     left: 0;
     position: fixed;
     top: 0;
@@ -21,7 +23,7 @@
   padding: 20px 0;
 
   & li {
-    font-size: 17px;
+    font-size: $fontSize;
     letter-spacing: 0.17px;
     line-height: 130%;
     padding: 10px 40px;
@@ -36,7 +38,7 @@
 
 .ref {
   position: relative;
-  top: -$nav-height;
+  top: -$navHeight;
 }
 
 @media (width < 1280px) {

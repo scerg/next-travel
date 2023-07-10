@@ -17,8 +17,10 @@ export function getMetadata(meta: { data: SeoProps }): MetadataReturn {
   const result = {
     title: seo?.metaTitle,
     description: seo?.metaDescription,
+    other: {
+      "emotion-insertion-point": " ",
+    },
   };
-
   return result;
 }
 
@@ -48,12 +50,18 @@ export function formatDate(dateString: string): string {
   return date.toLocaleDateString("ru-RU", options);
 }
 
-export function getDataHalf<T>(data: Array<T>): { part1: T[]; part2: T[] } {
-  const dataHalf = data.length / 2;
-  const part1 = data.slice(0, dataHalf);
-  const part2 = data.slice(dataHalf);
+export function getDataHalf<T>(
+  data: Array<T>
+): { part1: T[]; part2: T[] } | null {
+  if (data?.length > 0) {
+    const dataHalf = data.length / 2;
+    const part1 = data.slice(0, dataHalf);
+    const part2 = data.slice(dataHalf);
 
-  return { part1, part2 };
+    return { part1, part2 };
+  }
+
+  return null;
 }
 
 export function getChunk<T>(arr: Array<T>, size: number): T[][] {

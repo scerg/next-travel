@@ -23,7 +23,7 @@ const nextConfig = {
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "src/app")],
-    prependData: `@import "variables.scss";`,
+    prependData: `@import "shared/variables.scss";`,
   },
 };
 

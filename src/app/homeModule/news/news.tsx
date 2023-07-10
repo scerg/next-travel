@@ -1,6 +1,6 @@
 import SlickSlider from "@/app/components/slickSlider/slickSlider";
 import Title from "@/app/components/title/title";
-import { NewsItemProps } from "@/app/interfaces/homeModule.interface";
+import { NewsItemProps } from "@/app/interfaces/news.interface";
 import { getStrapiMedia } from "@/app/utils/helpers";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,14 +55,16 @@ const News: FC<{ data: NewsItemProps[] }> = ({ data }) => {
             href={`/news/${item.slug}`}
           >
             <div className={styles.content}>
-              <div className={`image ${styles.image}`}>
-                <Image
-                  src={getStrapiMedia(item.image.url) || ""}
-                  alt={item.image.alternativeText || ""}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 40vw, 50vw"
-                />
-              </div>
+              {item.image && (
+                <div className={`image ${styles.image}`}>
+                  <Image
+                    src={getStrapiMedia(item.image.url) || ""}
+                    alt={item.image.alternativeText || ""}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 40vw, 50vw"
+                  />
+                </div>
+              )}
               <div className={`${styles.title} news-title`}>{item.h1}</div>
               <div className={`${styles.text} news-text`}>
                 {item.text_small}

@@ -18,7 +18,7 @@
   align-items: center;
   cursor: pointer;
   display: flex;
-  font-size: 17px;
+  font-size: $fontSize;
   justify-content: space-between;
   letter-spacing: 0.17px;
   line-height: 130%;
@@ -26,7 +26,7 @@
 }
 
 .answer {
-  font-size: 17px;
+  font-size: $fontSize;
   letter-spacing: 0.17px;
   line-height: 130%;
   padding: 0 0 12px 40px;

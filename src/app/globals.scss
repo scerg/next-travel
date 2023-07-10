@@ -24,7 +24,7 @@ body {
 
 main {
   flex: 1 0 auto;
-  font-size: 17px;
+  font-size: $fontSize;
   letter-spacing: 0.17px;
   margin: 0 auto;
   width: 1680px;
@@ -72,7 +72,7 @@ h2 {
 }
 
 h3 {
-  font-size: 17px;
+  font-size: $fontSize;
   letter-spacing: 0.17px;
   line-height: 130%;
   padding: 0 0 40px;
@@ -83,7 +83,7 @@ input {
   border-radius: 20px;
   color: $dark;
   display: inline-block;
-  font-size: 17px;
+  font-size: $fontSize;
   letter-spacing: 0.17px;
   line-height: 130%;
   margin: 0 0 20px;

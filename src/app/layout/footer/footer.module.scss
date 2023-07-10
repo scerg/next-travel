@@ -1,5 +1,5 @@
 .footer {
-  background: $dark-blue;
+  background: $darkBlue;
   flex: 0 0 auto;
 }
 
@@ -14,7 +14,7 @@
   padding: 27px;
 
   & li {
-    font-size: 17px;
+    font-size: $fontSize;
     letter-spacing: 0.17px;
     line-height: 130%;
     padding: 10px 40px;

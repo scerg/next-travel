@@ -1,10 +1,10 @@
 .btn {
-  background: $light-blue;
+  background: $lightBlue;
   border: none;
   border-radius: 20px;
   color: $white;
   cursor: pointer;
-  font-size: 17px;
+  font-size: $fontSize;
   letter-spacing: 0.17px;
   line-height: 130%;
   padding: 13px 20px;
@@ -18,19 +18,19 @@
     background: $purple;
   }
 
-  &.light-blue {
-    background: $light-blue;
+  &.lightBlue {
+    background: $lightBlue;
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn {
-    &.light-blue:hover {
-      background: $dark-blue;
+    &.lightBlue:hover {
+      background: $darkBlue;
     }
 
     &.purple:hover {
-      background: $dark-purple;
+      background: $darkPurple;
     }
   }
 }

@@ -10,11 +10,3 @@ export interface HomeModuleProps {
   picture: ImageProps;
   text: string;
 }
-
-export interface NewsItemProps {
-  id: number;
-  h1: string;
-  slug: string;
-  text_small?: string;
-  image: ImageProps;
-}
