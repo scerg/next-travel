@@ -1,0 +1,201 @@
+.image {
+  position: relative;
+  margin: -70px 0 0 -70px;
+  width: 350px;
+  height: 280px;
+
+  & img {
+    border-radius: 90px 160px 160px 90px;
+    object-fit: cover;
+  }
+}
+
+.item {
+  border: 1px solid rgba($sand, 0.5);
+  border-radius: 80px 160px 160px 80px;
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: 308px 1fr;
+  margin: 80px 0;
+  padding: 40px;
+  text-align: center;
+
+  &.variant-right {
+    border-radius: 160px 80px 80px 160px;
+    grid-template-columns: 1fr 308px;
+
+    & .text {
+      order: 1;
+    }
+
+    & .image {
+      margin: -70px 0 0 30px;
+      order: 2;
+
+      & img {
+        border-radius: 160px 90px 90px 160px;
+      }
+    }
+
+    & .btn {
+      order: 3;
+    }
+
+    & .price {
+      order: 4;
+    }
+  }
+}
+
+.price {
+  align-items: center;
+  color: $dark;
+  display: flex;
+  font-size: 26px;
+  justify-content: center;
+  letter-spacing: 0.52px;
+  line-height: 130%;
+}
+
+.title {
+  color: $dark;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: 0.51px;
+  line-height: 120%;
+  text-align: center;
+}
+
+.text {
+  line-height: 130%;
+  padding: 20px 0;
+  text-align: left;
+}
+
+.location {
+  display: flex;
+  font-style: italic;
+  font-weight: 200;
+  letter-spacing: 0.17px;
+  line-height: 130%;
+  margin: 0 0 40px;
+
+  & span {
+    margin: 0 5px 0 0;
+  }
+
+  & img {
+    margin: 0 5px 0 0;
+  }
+}
+
+.btn {
+  text-align: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .location {
+    & a:hover {
+      color: $blue;
+    }
+  }
+}
+
+@media (width <= 1700px) {
+  .item {
+    border-radius: 80px 120px 120px 80px;
+    grid-gap: 0;
+    grid-template-columns: 1fr 1fr;
+
+    &.variant-right {
+      border-radius: 120px 80px 80px 120px;
+      grid-template-columns: 1fr 1fr;
+
+      & .image {
+        margin: -70px 0 0 70px;
+      }
+
+      & .content,
+      & .btn,
+      & .price {
+        margin: 0 -50px 0 0;
+      }
+    }
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .text,
+  .location {
+    font-size: 15px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .content,
+  .btn,
+  .price {
+    margin: 0 0 0 -50px;
+  }
+}
+
+@media (width < 1024px) {
+  .item {
+    display: block;
+    padding: 20px 20px 40px;
+
+    &.variant-right {
+      & .image {
+        margin: -70px 0 20px;
+      }
+
+      & .content {
+        margin: 0;
+      }
+
+      & .price {
+        margin: 0 0 20px;
+      }
+
+      & .btn {
+        margin: 0 30px;
+
+        & button {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .image {
+    margin: -70px 0 20px;
+  }
+
+  .content {
+    margin: 0;
+  }
+
+  .location {
+    margin: 0 0 30px;
+  }
+
+  .price {
+    margin: 0 0 20px;
+  }
+
+  .btn {
+    margin: 0 30px;
+
+    & button {
+      width: 100%;
+    }
+  }
+}

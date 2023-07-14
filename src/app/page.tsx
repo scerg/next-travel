@@ -5,10 +5,9 @@ import News from "@/app/homeModule/news/news";
 import Offer from "@/app/homeModule/offer/offer";
 import Reviews from "@/app/homeModule/reviews/reviews";
 import { AccordionItemProps } from "@/app/interfaces/components.interface";
-import {
-  HomeItemProps,
-  NewsItemProps,
-} from "@/app/interfaces/homeModule.interface";
+import { ExcursionItemProps } from "@/app/interfaces/excursions.interface";
+import { HomeItemProps } from "@/app/interfaces/homeModule.interface";
+import { NewsItemProps } from "@/app/interfaces/news.interface";
 import { API } from "@/app/utils/api";
 import { fetchAPI } from "@/app/utils/fetch-api";
 import React from "react";
@@ -19,7 +18,23 @@ async function getHome(): Promise<{ data: HomeItemProps[] }> {
   return await fetchAPI(path, urlParamsObject);
 }
 
-async function getNews(): Promise<{ data: NewsItemProps[] }> {
+async function getExcursions(): Promise<{
+  data: Omit<ExcursionItemProps[], "blocks" | "seo">;
+}> {
+  const path = API.excursionsPage.excursions;
+  const urlParamsObject = {
+    populate: {
+      image: { populate: "*" },
+      cities: { populate: "h1" },
+      price: { populate: "*" },
+    },
+  };
+  return await fetchAPI(path, urlParamsObject);
+}
+
+async function getNews(): Promise<{
+  data: Omit<NewsItemProps[], "blocks" | "seo">;
+}> {
   const path = API.newsPage.news;
   const urlParamsObject = {
     populate: {
@@ -39,18 +54,21 @@ async function getFaq(): Promise<{ data: { items: AccordionItemProps[] } }> {
 
 const Home = async (): Promise<JSX.Element> => {
   const home = await getHome();
-  const [activity] = home.data;
+  const [activity] = home?.data || [];
 
   const news = await getNews();
-  const { data: newsItems } = news;
+  const { data: newsItems } = news || {};
 
   const faq = await getFaq();
-  const { items: faqItems } = faq.data;
+  const { items: faqItems } = faq?.data || {};
+
+  const excursions = await getExcursions();
+  const { data: excursionsItems } = excursions || {};
 
   return (
     <>
       {activity && <Activity data={activity} />}
-      <Excursions />
+      {excursionsItems?.length > 0 && <Excursions data={excursionsItems} />}
       <Reviews />
       {newsItems?.length > 0 && <News data={newsItems} />}
       {faqItems?.length > 0 && <Faq data={faqItems} />}

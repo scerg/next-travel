@@ -7,7 +7,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 
-import styles from "./page.module.scss";
+import { getExcursionsAllFilters } from "./utils/helpers";
+import ExcursionForm from "./views/ExcursionForm";
 
 interface ExcursionsPageProps {
   data: {
@@ -31,16 +32,18 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 export default async function Excursions(): Promise<JSX.Element | null> {
-  const excursions = await getExcursionsPage();
-  const { h1, text } = excursions?.data || {};
+  const excursionsPage = await getExcursionsPage();
+  const { h1, text } = excursionsPage?.data || {};
+
+  const dataForm = await getExcursionsAllFilters();
 
   return (
     <section>
       <Breadcrumbs>
         <Link href="/">Главная</Link> - {h1}
       </Breadcrumbs>
-      <h1>{h1}</h1>
-      <div className={styles.text}>{text}</div>
+      <ExcursionForm dataForm={dataForm} h1={h1} />
+      <div>{text}</div>
     </section>
   );
 }

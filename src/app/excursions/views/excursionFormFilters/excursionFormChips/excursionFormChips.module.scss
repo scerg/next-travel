@@ -1,0 +1,26 @@
+.excursionsFormChip {
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  &:global.MuiChip-root {
+    border-color: rgba($sand, 0.5);
+    color: $sand;
+    background: #fffcef;
+    height: auto;
+
+    &.MuiChip-clickable:hover {
+      background-color: $white;
+    }
+  }
+
+  & :global {
+    & .MuiChip-label {
+      padding: 4px 20px 4px 20px;
+      font-size: 12px;
+    }
+
+    & .MuiChip-deleteIcon {
+      margin-right: 10px;
+    }
+  }
+}

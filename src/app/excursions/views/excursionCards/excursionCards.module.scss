@@ -1,0 +1,33 @@
+.excursionsItems {
+  display: grid;
+  grid-gap: 100px;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: left;
+}
+
+.items {
+  margin: -40px 0;
+}
+
+@media (width <= 1700px) {
+  .excursionsItems {
+    grid-gap: 50px;
+  }
+}
+
+@media (width < 1024px) {
+  .excursionsItems {
+    grid-gap: 50px 30px;
+    margin-top: 40px;
+  }
+}
+
+@media (width < 768px) {
+  .excursionsItems {
+    display: block;
+  }
+
+  .items {
+    margin: 0;
+  }
+}

@@ -8,6 +8,13 @@ export const API = {
   },
   excursionsPage: {
     page: "/excursion-page",
+    excursions: "/excursions",
+    kinds: "/excursions-kinds",
+    durations: "/excursions-durations",
+    activities: "/excursions-activities",
+    groups: "/excursions-groups",
+    difficulties: "/excursions-difficulties",
+    ages: "/excursions-ages",
   },
   guidePage: {
     page: "/guide-page",

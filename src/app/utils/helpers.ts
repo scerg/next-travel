@@ -70,3 +70,13 @@ export function getChunk<T>(arr: Array<T>, size: number): T[][] {
     result.push(arr.slice(s, e));
   return result;
 }
+
+export function debounce(func, timeout = 1000) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+}
