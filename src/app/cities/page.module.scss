@@ -9,6 +9,9 @@
   &:nth-child(odd) {
     grid-template-columns: 1fr 2fr;
   }
+  &:last-child {
+    grid-template-columns: 1fr;
+  }
 }
 
 .items {

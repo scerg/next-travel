@@ -63,7 +63,7 @@ const theme = createTheme({
       styleOverrides: {
         paper: {
           borderRadius: "24px",
-          border: `0.5px solid ${sand}`,
+          border: `1px solid ${sand}`,
           boxShadow: "none",
           marginTop: "2px",
         },
@@ -75,6 +75,12 @@ const theme = createTheme({
           padding: "9px 20px",
           "& .MuiCheckbox-root": {
             padding: 0,
+          },
+          "&.Mui-selected": {
+            backgroundColor: "rgba(197, 177, 78, 0.08)",
+            "&:hover": {
+              backgroundColor: "rgba(197, 177, 78, 0.2)",
+            },
           },
         },
       },
@@ -104,12 +110,25 @@ const theme = createTheme({
     },
     MuiButton: {
       styleOverrides: {
-        root: ({ ownerState }) => ({
-          //backgroundColor: "red",
-          ...(ownerState.variant === "contained" && {
-            padding: "100px",
-          }),
-        }),
+        root: {
+          borderRadius: "20px",
+          padding: "13px 20px",
+          width: "250px",
+          textTransform: "none",
+          boxShadow: "none",
+          lineHeight: "130%",
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontSize: "14px",
+          fontStyle: "normal",
+          fontWeight: "400",
+          lineHeight: "130%",
+          borderRadius: "160px",
+        },
       },
     },
   },

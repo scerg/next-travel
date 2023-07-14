@@ -5,7 +5,7 @@
 }
 
 .item {
-  border-bottom: 1px solid $sand;
+  border-bottom: 1px solid rgba($sand, 0.5);
   margin: 0 0 26px;
 
   & svg {
