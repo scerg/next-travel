@@ -1,7 +1,7 @@
+import { getCitiesInSelects } from "@/app/excursions/utils/helpers";
 import React from "react";
 import { useFormContext } from "react-hook-form";
 
-import { getCitiesInSelects } from "../utils/helpers";
 import styles from "./excursionFormMap.module.scss";
 
 const ExcursionFormMap = () => {

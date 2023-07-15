@@ -5,11 +5,14 @@
 
 .excursionsFormMap {
   position: absolute;
+  z-index: -1;
   bottom: -114%;
   left: 0;
+
   width: 100%;
+
   text-align: right;
-  z-index: -1;
+
   transition: all ease-out 0.2s;
 }
 
@@ -17,8 +20,10 @@
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(5, 1fr);
+
+  margin: 0 0 20px;
+
   text-align: left;
-  margin: 0 0 20px 0;
 
   & .excursionsFormItem {
     max-width: 320px;
@@ -27,23 +32,45 @@
 
 .excursionsFormItemsSliders {
   display: flex;
-  text-align: left;
-  margin: 0 0 50px 0;
   width: auto;
+  margin: 0 0 50px;
+  text-align: left;
 
   & .excursionsFormItem {
-    max-width: 500px;
     display: grid;
     grid-template-columns: auto 1fr;
+    max-width: 400px;
     margin-right: 20px;
   }
 }
 
+.excursionsFormSelect {
+  font-size: 14px;
+  background: $white;
+
+  & :global {
+    & .MuiSvgIcon-root {
+      top: auto;
+      right: 20px;
+      bottom: auto;
+
+      width: 24px;
+      height: 24px;
+
+      color: transparent;
+
+      &.MuiSelect-iconOpen {
+        color: $purple;
+      }
+    }
+  }
+}
+
 .excursionsFormBtn {
-  grid-row: 2/2;
   grid-column: 3/6;
-  text-align: right;
+  grid-row: 2/2;
   align-self: self-end;
+  text-align: right;
 }
 
 .excursionsFormItem {
@@ -51,8 +78,8 @@
 
   & :global {
     & .MuiFormControl-root {
-      margin: 0;
       width: 100%;
+      margin: 0;
     }
 
     & .MuiOutlinedInput-notchedOutline {
@@ -72,25 +99,25 @@
     }
 
     & .MuiSlider-root {
-      margin: 10px 20px;
       width: auto;
+      margin: 10px 20px;
       color: $sand;
 
       & .MuiSlider-thumb {
-        &:before {
+        &::before {
           content: none;
         }
 
         &:hover,
         &.Mui-focusVisible,
         &.Mui-active {
-          box-shadow: 0px 0px 0px 8px rgba($sand, 0.16);
+          box-shadow: 0 0 0 8px rgba($sand, 0.16);
         }
       }
     }
 
     & .MuiSlider-markLabel {
-      font-size: 14px;
+      font-size: 12px;
 
       &[data-index="0"] {
         transform: translateX(0%);
@@ -104,12 +131,14 @@
 }
 
 .excursionsFormLabel {
-  font-size: $fontSize;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 130%;
-  padding: 12px 20px;
   user-select: none;
+
+  padding: 12px 20px;
+
+  font-size: $fontSize;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 130%;
 }
 
 .excursionsFormCheckbox {
@@ -117,26 +146,6 @@
     font-size: 24px;
     border-radius: 20px;
     fill: $sand;
-  }
-}
-
-.excursionsFormSelect {
-  font-size: 14px;
-  background: $white;
-
-  & :global {
-    & .MuiSvgIcon-root {
-      color: transparent;
-      width: 24px;
-      height: 24px;
-      top: auto;
-      bottom: auto;
-      right: 20px;
-
-      &.MuiSelect-iconOpen {
-        color: $purple;
-      }
-    }
   }
 }
 
@@ -152,24 +161,33 @@
 
 .excursionsFormReset {
   display: inline-block;
-  vertical-align: top;
+
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
   line-height: 130%;
+  vertical-align: top;
 
   & :global {
     & .MuiLink-root {
-      color: $sand;
-      text-decoration-color: transparent;
-      border: none;
-      padding: 3px 10px;
       display: flex;
       align-items: center;
+
+      padding: 3px 10px;
+
+      color: $sand;
+      text-decoration-color: transparent;
+
+      border: none;
 
       & img {
         margin: 0 0 0 10px;
       }
     }
   }
+}
+
+.excursionsFormResult {
+  position: relative;
+  min-height: 500px;
 }

@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 
-import { getExcursionsAllFilters } from "./utils/helpers";
+import { getExcursionsAllFilters } from "./utils/filters-api";
 import ExcursionForm from "./views/ExcursionForm";
 
 interface ExcursionsPageProps {
@@ -42,7 +42,7 @@ export default async function Excursions(): Promise<JSX.Element | null> {
       <Breadcrumbs>
         <Link href="/">Главная</Link> - {h1}
       </Breadcrumbs>
-      <ExcursionForm dataForm={dataForm} h1={h1} />
+      <ExcursionForm h1={h1} dataForm={dataForm} />
       <div>{text}</div>
     </section>
   );

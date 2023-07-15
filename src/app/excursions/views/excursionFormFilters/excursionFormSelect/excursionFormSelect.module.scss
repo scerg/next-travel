@@ -1,0 +1,23 @@
+@import "../../excursionForm.module";
+
+.excursionsFormSelect {
+  font-size: 14px;
+  background: $white;
+
+  & :global {
+    & .MuiSvgIcon-root {
+      top: auto;
+      right: 20px;
+      bottom: auto;
+
+      width: 24px;
+      height: 24px;
+
+      color: transparent;
+
+      &.MuiSelect-iconOpen {
+        color: $purple;
+      }
+    }
+  }
+}

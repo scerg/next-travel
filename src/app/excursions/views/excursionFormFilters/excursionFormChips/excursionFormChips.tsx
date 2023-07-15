@@ -1,5 +1,6 @@
 "use client";
 
+import { defaultValue } from "@/app/excursions/utils/helpers";
 import { ExcursionsFiltersProps } from "@/app/interfaces/excursions.interface";
 import Chip from "@mui/material/Chip";
 import FormControl from "@mui/material/FormControl";
@@ -7,7 +8,6 @@ import Image from "next/image";
 import React, { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { defaultValue } from "../utils/helpers";
 import styles from "./excursionFormChips.module.scss";
 
 interface ExcursionFormChipsProps {

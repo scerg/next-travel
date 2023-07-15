@@ -56,7 +56,7 @@ export interface ExcursionsFormDefaultSlidersProps {
 export interface ExcursionsFormFilterDataProps {
   [key: string]: {
     id: {
-      $in: number[];
+      $in: number[] | number;
     };
   };
 }

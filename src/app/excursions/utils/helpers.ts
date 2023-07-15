@@ -1,131 +1,114 @@
 import {
+  ExcursionsAllFiltersProps,
   ExcursionsFiltersProps,
-  ExcursionsFormProps,
+  ExcursionsFormDefaultProps,
+  ExcursionsFormFilterDataProps,
 } from "@/app/interfaces/excursions.interface";
-import { API } from "@/app/utils/api";
-import { fetchAPI } from "@/app/utils/fetch-api";
 
-export async function getExcursionsKinds(): Promise<{
-  data: ExcursionsFiltersProps[];
-}> {
-  const path = API.excursionsPage.kinds;
-  const urlParamsObject = {
-    fields: ["name", "slug"],
-  };
-  return await fetchAPI(path, urlParamsObject);
-}
+export const defaultValue = 0 as number;
 
-export async function getExcursionsCities(): Promise<{
-  data: ExcursionsFiltersProps[];
-}> {
-  const path = API.cityPage.cities;
-  const urlParamsObject = {
-    fields: ["h1", "slug"],
-  };
-  return await fetchAPI(path, urlParamsObject);
-}
+export const getDataSelect = (data: ExcursionsFiltersProps[]) => {
+  const defaultData = [{ id: defaultValue, name: "Все", slug: "vse" }];
 
-export async function getExcursionsDurations(): Promise<{
-  data: ExcursionsFiltersProps[];
-}> {
-  const path = API.excursionsPage.durations;
-  const urlParamsObject = {
-    fields: ["name", "slug"],
-  };
-  return await fetchAPI(path, urlParamsObject);
-}
+  let result = defaultData;
+  if (data?.length > 0) result = [...result, ...data];
+  return result;
+};
 
-export async function getExcursionsActivities(): Promise<{
-  data: ExcursionsFiltersProps[];
-}> {
-  const path = API.excursionsPage.activities;
-  const urlParamsObject = {
-    fields: ["name", "slug"],
-  };
-  return await fetchAPI(path, urlParamsObject);
-}
+export const getDataSlider = (
+  data: ExcursionsFiltersProps[],
+  name?: string
+) => {
+  const defaultData = [
+    { id: defaultValue, label: name, name, value: defaultValue },
+  ] as ExcursionsFiltersProps[];
 
-export async function getExcursionsGroups(): Promise<{
-  data: ExcursionsFiltersProps[];
-}> {
-  const path = API.excursionsPage.groups;
-  const urlParamsObject = {
-    fields: ["name", "slug"],
-  };
-  return await fetchAPI(path, urlParamsObject);
-}
-
-export async function getExcursionsDifficulties(): Promise<{
-  data: ExcursionsFiltersProps[];
-}> {
-  const path = API.excursionsPage.difficulties;
-  const urlParamsObject = {
-    fields: ["name", "slug"],
-  };
-  return await fetchAPI(path, urlParamsObject);
-}
-
-export async function getExcursionsAges(): Promise<{
-  data: ExcursionsFiltersProps[];
-}> {
-  const path = API.excursionsPage.ages;
-  const urlParamsObject = {
-    fields: ["name", "slug"],
-  };
-  return await fetchAPI(path, urlParamsObject);
-}
-
-export async function getExcursionsAllFilters(): Promise<ExcursionsFormProps> {
-  const kinds = await getExcursionsKinds();
-  const { data: dataKinds } = kinds || {};
-
-  const cities = await getExcursionsCities();
-  const { data: dC } = cities || {};
-  const dataCities = dC.map((e) => ({
+  let result = defaultData;
+  if (data?.length > 0) result = [...result, ...data];
+  return result.map((e, i) => ({
     ...e,
-    name: e.h1 || "",
+    label: e.name,
+    value: i * 50,
   }));
+};
 
-  const durations = await getExcursionsDurations();
-  const { data: dataDurations } = durations || {};
+export const checkFilledSelects = (
+  selects: ExcursionsFormDefaultProps["selects"]
+) => {
+  if (!selects) return false;
 
-  const activities = await getExcursionsActivities();
-  const { data: dataActivities } = activities || {};
+  return selects.reduce((acc: boolean, item) => {
+    const [name] = Object.keys(item);
+    const res = item[name];
+    if (res && !res?.includes(defaultValue)) {
+      acc = true;
+    }
+    return acc;
+  }, false);
+};
 
-  const groups = await getExcursionsGroups();
-  const { data: dataGroups } = groups || {};
+export const getCitiesInSelects = (
+  selects: ExcursionsFormDefaultProps["selects"]
+) => {
+  if (!selects) return [];
 
-  const difficulties = await getExcursionsDifficulties();
-  const { data: dataDifficulties } = difficulties || {};
+  return selects.reduce((acc: number[], item) => {
+    const [name] = Object.keys(item);
+    const res = item[name];
+    if (res && !res?.includes(defaultValue) && name === "cities") {
+      acc = res;
+    }
+    return acc;
+  }, []);
+};
 
-  const ages = await getExcursionsAges();
-  const { data: dataAges } = ages || {};
+export const getFilters = (
+  data: ExcursionsFormDefaultProps,
+  sliders: ExcursionsAllFiltersProps[]
+) => {
+  const { selects: selectsData, sliders: slidersData } = data;
 
-  const dataForm = {
-    selects: [
-      { id: "excursions_kinds", title: "Вид экскурсии", data: dataKinds },
-      { id: "cities", title: "Город", data: dataCities },
-      {
-        id: "excursions_durations",
-        title: "Продолжительность",
-        data: dataDurations,
-      },
-      {
-        id: "excursions_activities",
-        title: "Активность",
-        data: dataActivities,
-      },
-      { id: "excursions_groups", title: "Группа", data: dataGroups },
-    ],
-    sliders: [
-      {
-        id: "excursions_difficulties",
-        title: "Сложность",
-        data: dataDifficulties,
-      },
-      { id: "excursions_ages", title: "Возраст", data: dataAges },
-    ],
+  const filtersData = [] as ExcursionsFormFilterDataProps[];
+  selectsData.forEach((e) => {
+    const [name] = Object.keys(e);
+    const res = e[name];
+
+    if (res && !res?.includes(defaultValue)) {
+      filtersData.push({
+        [name]: {
+          id: {
+            $in: res,
+          },
+        },
+      });
+    }
+  });
+  slidersData.forEach((e) => {
+    const [name] = Object.keys(e);
+
+    const sliderItem = sliders?.find((el) => el.id === name)?.data;
+    const sliderItemMod = sliderItem ? getDataSlider(sliderItem) : [];
+
+    const el = e[name];
+
+    const res = el
+      ? sliderItemMod?.find((it) => it.value === el)?.id
+      : undefined;
+
+    if (res) {
+      filtersData.push({
+        [name]: {
+          id: {
+            $in: res,
+          },
+        },
+      });
+    }
+  });
+
+  const filters = {
+    $and: filtersData,
   };
 
-  return dataForm;
-}
+  return filters;
+};

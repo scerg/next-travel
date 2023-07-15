@@ -1,5 +1,6 @@
 "use client";
 
+import { defaultValue } from "@/app/excursions/utils/helpers";
 import { ExcursionsFiltersProps } from "@/app/interfaces/excursions.interface";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
@@ -7,8 +8,7 @@ import Slider from "@mui/material/Slider";
 import React, { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import styles from "../excursionFormFilters.module.scss";
-import { defaultValue } from "../utils/helpers";
+import styles from "../../excursionForm.module.scss";
 
 interface ExcursionFormSelectProps {
   name: string;

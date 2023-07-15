@@ -1,11 +1,11 @@
 .excursionFormMapSvg {
   width: 70%;
   height: auto;
-  margin: 120px 0 0 0;
+  margin: 120px 0 0;
 
   & path {
-    transition: all ease-out 0.2s;
     opacity: 0.3;
+    transition: all ease-out 0.2s;
   }
 
   & .city {
@@ -17,8 +17,8 @@
   }
 
   & .cityActive {
-    fill: rgba($sand, 0.16);
     opacity: 0.6;
+    fill: rgba($sand, 0.16);
   }
 
   & .regionEmpty {
