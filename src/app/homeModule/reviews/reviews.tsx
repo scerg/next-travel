@@ -1,5 +1,8 @@
 import SlickSlider from "@/app/components/slickSlider/slickSlider";
 import Title from "@/app/components/title/title";
+import { ReviewsProps } from "@/app/interfaces/reviews.interface";
+import { formatDate } from "@/app/utils/helpers";
+import clsx from "clsx";
 import React, { FC } from "react";
 
 import styles from "./reviews.module.scss";
@@ -33,59 +36,32 @@ const settings = {
   ],
 };
 
-const Reviews: FC = () => {
+const Reviews: FC<{ data: ReviewsProps[] }> = ({ data }) => {
   return (
     <section className={styles.reviews}>
       <Title title={"Вдохновляющие отзывы"} />
       <SlickSlider settings={settings}>
-        <div className={styles.item}>
-          <div className={styles.content}>
-            <div className={styles.title}>
-              Посетила дайвинг тур и впечатлилась увиденным
-            </div>
-            <div className={styles.text}>
-              Ездила в субботу на дайвинг-тур с крутыми ребятами Иваном и
-              Еленой. Полное обмундирование, качественная техника, вода теплая,
-              рыбки красивые. Столько эмоций получила в этот день
-            </div>
-            <div className={styles.inform}>
-              <div className={styles.info}>Катя, 12 марта 2023</div>
-              <div className={styles.stars}></div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.item}>
-          <div className={styles.content}>
-            <div className={styles.title}>
-              Посетила дайвинг тур и впечатлилась увиденным
-            </div>
-            <div className={styles.text}>
-              Ездила в субботу на дайвинг-тур с крутыми ребятами Иваном и
-              Еленой. Полное обмундирование, качественная техника, вода теплая,
-              рыбки красивые. Столько эмоций получила в этот день
-            </div>
-            <div className={styles.inform}>
-              <div className={styles.info}>Катя, 12 марта 2023</div>
-              <div className={styles.stars}></div>
+        {data.map((item) => (
+          <div key={item.id} className={styles.item}>
+            <div className={styles.content}>
+              <div className={styles.title}>{item.title}</div>
+              <div className={styles.text}>{item.description}</div>
+              <div className={styles.inform}>
+                <div className={styles.info}>
+                  {item.name}, {formatDate(item.date)}
+                </div>
+                <div className={styles.starsDefault}>
+                  <div
+                    className={clsx(
+                      styles.stars,
+                      styles[`star-${item.rating}`]
+                    )}
+                  ></div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.item}>
-          <div className={styles.content}>
-            <div className={styles.title}>
-              Посетила дайвинг тур и впечатлилась увиденным
-            </div>
-            <div className={styles.text}>
-              Ездила в субботу на дайвинг-тур с крутыми ребятами Иваном и
-              Еленой. Полное обмундирование, качественная техника, вода теплая,
-              рыбки красивые. Столько эмоций получила в этот день
-            </div>
-            <div className={styles.inform}>
-              <div className={styles.info}>Катя, 12 марта 2023</div>
-              <div className={styles.stars}></div>
-            </div>
-          </div>
-        </div>
+        ))}
       </SlickSlider>
     </section>
   );

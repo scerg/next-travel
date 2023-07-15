@@ -34,10 +34,23 @@
   line-height: 130%;
 }
 
-.stars {
-  background: repeat-x url("/star.svg");
+.starsDefault {
+  background: repeat-x url("/star-default.svg");
   height: 25px;
   width: 125px;
+}
+
+.stars {
+  background: repeat-x url("/star.svg");
+  height: 100%;
+}
+
+@for $i from 1 through 5 {
+  $side: $i * 25;
+
+  .star-#{$i} {
+    width: #{$side}px;
+  }
 }
 
 .reviewsSlider {

@@ -8,6 +8,7 @@ import { AccordionItemProps } from "@/app/interfaces/components.interface";
 import { ExcursionItemProps } from "@/app/interfaces/excursions.interface";
 import { HomeItemProps } from "@/app/interfaces/homeModule.interface";
 import { NewsItemProps } from "@/app/interfaces/news.interface";
+import { ReviewsProps } from "@/app/interfaces/reviews.interface";
 import { API } from "@/app/utils/api";
 import { fetchAPI } from "@/app/utils/fetch-api";
 import React from "react";
@@ -28,6 +29,16 @@ async function getExcursions(): Promise<{
       cities: { populate: "h1" },
       price: { populate: "*" },
     },
+  };
+  return await fetchAPI(path, urlParamsObject);
+}
+
+async function getReviews(): Promise<{
+  data: ReviewsProps[];
+}> {
+  const path = API.reviewPage.reviews;
+  const urlParamsObject = {
+    populate: ["title", "description", "date", "name", "rating"],
   };
   return await fetchAPI(path, urlParamsObject);
 }
@@ -56,6 +67,9 @@ const Home = async (): Promise<JSX.Element> => {
   const home = await getHome();
   const [activity] = home?.data || [];
 
+  const reviews = await getReviews();
+  const { data: reviewsItems } = reviews || {};
+
   const news = await getNews();
   const { data: newsItems } = news || {};
 
@@ -69,7 +83,7 @@ const Home = async (): Promise<JSX.Element> => {
     <>
       {activity && <Activity data={activity} />}
       {excursionsItems?.length > 0 && <Excursions data={excursionsItems} />}
-      <Reviews />
+      {reviewsItems?.length > 0 && <Reviews data={reviewsItems} />}
       {newsItems?.length > 0 && <News data={newsItems} />}
       {faqItems?.length > 0 && <Faq data={faqItems} />}
       <Offer />
