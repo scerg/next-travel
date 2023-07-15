@@ -1,5 +1,5 @@
 .image {
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
 
   & img {
     border-radius: 80px;
@@ -11,11 +11,11 @@
 }
 
 .date {
-  color: $grey;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
   line-height: 130%;
+  color: $grey;
   letter-spacing: 0.14px;
 }
 

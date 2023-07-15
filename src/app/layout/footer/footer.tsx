@@ -12,7 +12,7 @@ const Item = ({ item }: { item: LinksProps }) => (
 );
 
 const Footer: FC<{ links: LinksProps[] }> = ({ links }) => {
-  const { part1, part2 } = getDataHalf(links);
+  const { part1 = [], part2 = [] } = getDataHalf(links) || {};
 
   return (
     <footer className={styles.footer}>

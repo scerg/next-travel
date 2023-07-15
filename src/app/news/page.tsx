@@ -56,8 +56,7 @@ const News = async (): Promise<JSX.Element> => {
 
   const news = await getNews();
 
-  const { part1 = [], part2 = [] } =
-    news?.data?.length > 0 ? getDataHalf(news.data) : {};
+  const { part1 = [], part2 = [] } = getDataHalf(news?.data) || {};
 
   return (
     <section>

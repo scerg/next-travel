@@ -38,12 +38,12 @@ const Item: FC<{
 );
 
 const Accordion: FC<{ data: AccordionItemProps[] }> = ({ data }) => {
-  const { part1, part2 } = getDataHalf(data);
+  const { part1 = [], part2 = [] } = getDataHalf(data) || {};
 
   const [expanded, setExpanded] = useState<number>(1);
 
   const handleClick = (id: number) => {
-    setExpanded(expanded === id ? 0 : id);
+    setExpanded((expanded) => (expanded === id ? 0 : id));
   };
 
   return (
