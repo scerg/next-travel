@@ -1,58 +1,66 @@
 .link {
   position: relative;
-  height: 400px;
   display: block;
+  height: 400px;
 
   & img {
-    border-radius: 80px;
     object-fit: cover;
+    border-radius: 80px;
   }
 }
 
 .name {
-  border-radius: 80px 160px 160px 80px;
-  background: $sand;
-  font-size: 34px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 130%;
-  letter-spacing: 0.51px;
-  padding: 100px 20px;
-  display: inline-block;
-  color: white;
   position: absolute;
   top: -30px;
   left: -30px;
-  width: 100%;
-  text-align: center;
-  max-width: 350px;
 
-  &:before {
+  display: inline-block;
+
+  width: 100%;
+  max-width: 350px;
+  padding: 100px 20px;
+
+  font-size: 34px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 130%;
+  color: white;
+  text-align: center;
+  letter-spacing: 0.51px;
+
+  background: $sand;
+  border-radius: 80px 160px 160px 80px;
+
+  &::before {
     content: "";
+
     position: absolute;
-    left: -30px;
     top: -30px;
-    padding: 30px;
+    left: -30px;
+
     display: block;
+
+    box-sizing: content-box;
     width: 100%;
     height: 100%;
+    padding: 30px;
+
     border: 1px solid rgba($sand, 0.5);
     border-radius: 80px 160px 160px 80px;
-    box-sizing: content-box;
   }
 }
 
 @media (width < 1280px) {
   .name {
-    font-size: 28px;
-    padding: 80px 20px;
     max-width: 300px;
+    padding: 80px 20px;
+    font-size: 28px;
   }
 }
 
-@media (width <= 768px) {
+@media (width <=768px) {
   .name {
-    font-size: 22px;
     padding: 70px 20px;
+    font-size: 22px;
   }
 }

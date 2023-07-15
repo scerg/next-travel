@@ -3,11 +3,12 @@
 }
 
 .content {
+  max-width: 700px;
+  margin: 40px 20px;
+  padding: 40px;
+
   border: 1px solid rgba($sand, 0.5);
   border-radius: 30px 80px;
-  margin: 40px 20px;
-  max-width: 700px;
-  padding: 40px;
 }
 
 .title {
@@ -17,32 +18,32 @@
 }
 
 .text {
-  letter-spacing: 0.17px;
-  line-height: 130%;
   padding: 20px 0;
+  line-height: 130%;
+  letter-spacing: 0.17px;
 }
 
 .inform {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
 .info {
   font-size: 14px;
-  letter-spacing: 0.14px;
   line-height: 130%;
+  letter-spacing: 0.14px;
 }
 
 .starsDefault {
-  background: repeat-x url("/star-default.svg");
-  height: 25px;
   width: 125px;
+  height: 25px;
+  background: repeat-x url("/star-default.svg");
 }
 
 .stars {
-  background: repeat-x url("/star.svg");
   height: 100%;
+  background: repeat-x url("/star.svg");
 }
 
 @for $i from 1 through 5 {

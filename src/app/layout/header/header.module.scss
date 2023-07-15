@@ -4,35 +4,39 @@ $navHeight: 80px;
   background: #51bccc;
 
   & nav {
-    background: #51bccc;
-    height: $navHeight;
-    left: 0;
     position: fixed;
-    top: 0;
-    width: 100%;
     z-index: 999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: $navHeight;
+
+    background: #51bccc;
   }
 }
 
 .items {
-  align-items: center;
-  color: $white;
   display: flex;
+  align-items: center;
   justify-content: center;
-  list-style: none;
+
   padding: 20px 0;
 
+  color: $white;
+  list-style: none;
+
   & li {
-    font-size: $fontSize;
-    letter-spacing: 0.17px;
-    line-height: 130%;
     padding: 10px 40px;
+    font-size: $fontSize;
+    line-height: 130%;
+    letter-spacing: 0.17px;
   }
 }
 
 .text {
-  color: $white;
   padding: 185px 0 105px;
+  color: $white;
   text-align: center;
 }
 

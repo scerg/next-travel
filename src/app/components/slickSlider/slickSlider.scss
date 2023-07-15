@@ -1,29 +1,29 @@
 .slick-slide img {
+  width: 100%;
   height: auto;
   transition: all ease-out 0.2s;
-  width: 100%;
 }
 
 .news-item {
-  transform: scale(0.5);
   transform-origin: right;
+  transform: scale(0.5);
   transition: transform ease-out 0.5s;
 }
 
 .slick-center .news-item {
-  transform: none !important;
   transform-origin: bottom;
+  transform: none !important;
 }
 
 .slick-active + .slick-active .news-item,
 .slick-center + div .news-item {
-  transform: scale(0.7);
   transform-origin: bottom;
+  transform: scale(0.7);
 }
 
 .slick-center + .slick-active + .slick-active .news-item {
-  transform: scale(0.5);
   transform-origin: left;
+  transform: scale(0.5);
 }
 
 .news-text {
@@ -36,13 +36,13 @@
 
 @media (width < 1280px) {
   .news-item {
-    transform: scale(0.7);
     transform-origin: center;
+    transform: scale(0.7);
   }
 
   .slick-active + .slick-active .news-item,
   .slick-center + div .news-item {
-    transform: scale(0.7);
     transform-origin: center;
+    transform: scale(0.7);
   }
 }

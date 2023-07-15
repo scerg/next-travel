@@ -1,26 +1,29 @@
 .slick-prev.prevArrow,
 .slick-next.nextArrow {
+  z-index: 9;
+  top: auto;
+  bottom: -85px;
+
+  display: flex;
   align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
   background: $purple;
   border-radius: 80px 160px 160px 80px;
-  bottom: -85px;
-  display: flex;
-  height: 48px;
-  justify-content: center;
-  top: auto;
-  width: 48px;
-  z-index: 9;
 }
 
 .slick-prev.prevArrow {
-  border-radius: 160px 80px 80px 160px;
   left: 50%;
   margin-left: -120px;
+  border-radius: 160px 80px 80px 160px;
 }
 
 .slick-next.nextArrow {
-  margin-right: -120px;
   right: 50%;
+  margin-right: -120px;
 }
 
 .slick-prev.prevArrow img {

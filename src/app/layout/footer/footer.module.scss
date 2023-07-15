@@ -1,6 +1,6 @@
 .footer {
-  background: $darkBlue;
   flex: 0 0 auto;
+  background: $darkBlue;
 }
 
 .nav {
@@ -9,15 +9,15 @@
 }
 
 .items {
+  padding: 27px;
   color: $white;
   list-style: none;
-  padding: 27px;
 
   & li {
-    font-size: $fontSize;
-    letter-spacing: 0.17px;
-    line-height: 130%;
     padding: 10px 40px;
+    font-size: $fontSize;
+    line-height: 130%;
+    letter-spacing: 0.17px;
   }
 }
 

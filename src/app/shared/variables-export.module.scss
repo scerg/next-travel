@@ -1,15 +1,15 @@
-@import "variables.scss";
+@import "variables";
 
 :export {
-  white: $white;
-  dark: $dark;
-  purple: $purple;
-  darkPurple: $darkPurple;
   blue: $blue;
+  dark: $dark;
   darkBlue: $darkBlue;
+  darkPurple: $darkPurple;
+  fontSize: $fontSize;
+  grey: $grey;
   lightBlue: $lightBlue;
+  purple: $purple;
   sand: $sand;
   star: $star;
-  grey: $grey;
-  fontSize: $fontSize;
+  white: $white;
 }

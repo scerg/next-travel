@@ -5,39 +5,42 @@
 }
 
 .item {
-  border-bottom: 1px solid rgba($sand, 0.5);
   margin: 0 0 26px;
+  border-bottom: 1px solid rgba($sand, 0.5);
 
   & svg {
-    margin: 0 0 0 20px;
     min-width: 24px;
+    margin: 0 0 0 20px;
   }
 }
 
 .question {
-  align-items: center;
   cursor: pointer;
+
   display: flex;
-  font-size: $fontSize;
+  align-items: center;
   justify-content: space-between;
-  letter-spacing: 0.17px;
-  line-height: 130%;
+
   padding: 14px 0;
+
+  font-size: $fontSize;
+  line-height: 130%;
+  letter-spacing: 0.17px;
 }
 
 .answer {
-  font-size: $fontSize;
-  letter-spacing: 0.17px;
-  line-height: 130%;
   padding: 0 0 12px 40px;
+  font-size: $fontSize;
+  line-height: 130%;
+  letter-spacing: 0.17px;
 }
 
 .itemActive {
   border-color: $purple;
 
   & svg {
-    fill: $purple;
     transform: rotate(180deg);
+    fill: $purple;
   }
 
   & path {

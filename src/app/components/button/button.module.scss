@@ -1,14 +1,17 @@
 .btn {
+  cursor: pointer;
+
+  width: 250px;
+  padding: 13px 20px;
+
+  font-size: $fontSize;
+  line-height: 130%;
+  color: $white;
+  letter-spacing: 0.17px;
+
   background: $lightBlue;
   border: none;
   border-radius: 20px;
-  color: $white;
-  cursor: pointer;
-  font-size: $fontSize;
-  letter-spacing: 0.17px;
-  line-height: 130%;
-  padding: 13px 20px;
-  width: 250px;
 
   &:active {
     background: $sand;
