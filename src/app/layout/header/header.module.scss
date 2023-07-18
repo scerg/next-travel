@@ -17,8 +17,8 @@ $navHeight: 80px;
 }
 
 .h1 {
-  font-size: 64px;
   padding: 0 0 48px;
+  font-size: 64px;
 }
 
 .items {
@@ -38,7 +38,7 @@ $navHeight: 80px;
   }
 
   & a {
-    padding: 27px 40px;
+    padding: 26px 40px;
     border-bottom: 3px solid transparent;
     transition: all ease-out 0.2s;
 
@@ -48,9 +48,9 @@ $navHeight: 80px;
   }
 
   & .logo {
-    padding: 0;
-    margin: -25px 0;
     display: block;
+    margin: -25px 0;
+    padding: 0;
   }
 }
 

@@ -14,6 +14,32 @@
     "no-empty-source": null,
     "declaration-empty-line-before": null,
     "no-missing-end-of-source-newline": null,
-    "keyframes-name-pattern": null
+    "keyframes-name-pattern": null,
+    "block-no-empty": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global", "export"]
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "blue",
+          "dark",
+          "darkBlue",
+          "darkPurple",
+          "fontSize",
+          "grey",
+          "lightBlue",
+          "purple",
+          "sand",
+          "star",
+          "white"
+        ]
+      }
+    ],
+    "scss/dollar-variable-pattern": null
   }
 }

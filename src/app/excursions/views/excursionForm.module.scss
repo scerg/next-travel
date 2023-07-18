@@ -16,12 +16,68 @@
   transition: all ease-out 0.2s;
 }
 
+.excursionsFormItem {
+  width: 100%;
+
+  & :global {
+    & .MuiFormControl-root {
+      width: 100%;
+      margin: 0;
+    }
+
+    & .MuiOutlinedInput-notchedOutline {
+      border-color: rgba($sand, 0.5);
+    }
+
+    & .Mui-focused,
+    & .MuiOutlinedInput-root:hover {
+      & .MuiOutlinedInput-notchedOutline {
+        border-color: $sand;
+        border-width: 1px;
+      }
+    }
+
+    & .MuiSelect-select.MuiSelect-multiple {
+      padding-right: 45px;
+    }
+
+    & .MuiSlider-root {
+      width: auto;
+      margin: 10px 20px;
+      color: $sand;
+
+      & .MuiSlider-thumb {
+        &::before {
+          content: none;
+        }
+
+        &:hover,
+        &.Mui-focusVisible,
+        &.Mui-active {
+          box-shadow: 0 0 0 8px rgba($sand, 0.16);
+        }
+      }
+    }
+
+    & .MuiSlider-markLabel {
+      font-size: 12px;
+
+      &[data-index="0"] {
+        transform: translateX(0%);
+      }
+
+      &[data-index="2"] {
+        transform: translateX(-100%);
+      }
+    }
+  }
+}
+
 .excursionsFormItemsSelects {
   display: grid;
   grid-template-columns: repeat(5, 20%);
-
+  margin: 0 -10px 20px;
   text-align: left;
-  margin: 0 -10px 20px -10px;
 
   & .excursionsFormItem {
     width: auto;
@@ -70,63 +126,6 @@
   grid-row: 2/2;
   align-self: self-end;
   text-align: right;
-}
-
-.excursionsFormItem {
-  width: 100%;
-
-  & :global {
-    & .MuiFormControl-root {
-      width: 100%;
-      margin: 0;
-    }
-
-    & .MuiOutlinedInput-notchedOutline {
-      border-color: rgba($sand, 0.5);
-    }
-
-    & .MuiOutlinedInput-root:hover,
-    & .Mui-focused {
-      & .MuiOutlinedInput-notchedOutline {
-        border-color: $sand;
-        border-width: 1px;
-      }
-    }
-
-    & .MuiSelect-select.MuiSelect-multiple {
-      padding-right: 45px;
-    }
-
-    & .MuiSlider-root {
-      width: auto;
-      margin: 10px 20px;
-      color: $sand;
-
-      & .MuiSlider-thumb {
-        &::before {
-          content: none;
-        }
-
-        &:hover,
-        &.Mui-focusVisible,
-        &.Mui-active {
-          box-shadow: 0 0 0 8px rgba($sand, 0.16);
-        }
-      }
-    }
-
-    & .MuiSlider-markLabel {
-      font-size: 12px;
-
-      &[data-index="0"] {
-        transform: translateX(0%);
-      }
-
-      &[data-index="2"] {
-        transform: translateX(-100%);
-      }
-    }
-  }
 }
 
 .excursionsFormLabel {
@@ -254,7 +253,7 @@
       }
 
       & .MuiSlider-root {
-        margin: 4px 20px 30px 20px;
+        margin: 4px 20px 30px;
       }
 
       & .MuiSlider-markLabel {

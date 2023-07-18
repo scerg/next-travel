@@ -10,46 +10,6 @@
   }
 }
 
-.item {
-  display: grid;
-  grid-gap: 40px;
-  grid-template-columns: 308px 1fr;
-
-  margin: 80px 0;
-  padding: 40px;
-
-  text-align: center;
-
-  border: 1px solid rgba($sand, 0.5);
-  border-radius: 80px 160px 160px 80px;
-
-  &.variant-right {
-    grid-template-columns: 1fr 308px;
-    border-radius: 160px 80px 80px 160px;
-
-    & .text {
-      order: 1;
-    }
-
-    & .image {
-      order: 2;
-      margin: -70px 0 0 30px;
-
-      & img {
-        border-radius: 160px 90px 90px 160px;
-      }
-    }
-
-    & .btn {
-      order: 3;
-    }
-
-    & .price {
-      order: 4;
-    }
-  }
-}
-
 .price {
   display: flex;
   align-items: center;
@@ -99,6 +59,46 @@
   text-align: center;
 }
 
+.item {
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: 308px 1fr;
+
+  margin: 80px 0;
+  padding: 40px;
+
+  text-align: center;
+
+  border: 1px solid rgba($sand, 0.5);
+  border-radius: 80px 160px 160px 80px;
+
+  &.variant-right {
+    grid-template-columns: 1fr 308px;
+    border-radius: 160px 80px 80px 160px;
+
+    & .text {
+      order: 1;
+    }
+
+    & .image {
+      order: 2;
+      margin: -70px 0 0 30px;
+
+      & img {
+        border-radius: 160px 90px 90px 160px;
+      }
+    }
+
+    & .btn {
+      order: 3;
+    }
+
+    & .price {
+      order: 4;
+    }
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .location {
     & a:hover {
@@ -108,27 +108,6 @@
 }
 
 @media (width <= 1700px) {
-  .item {
-    grid-gap: 0;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 80px 120px 120px 80px;
-
-    &.variant-right {
-      grid-template-columns: 1fr 1fr;
-      border-radius: 120px 80px 80px 120px;
-
-      & .image {
-        margin: -70px 0 0 70px;
-      }
-
-      & .content,
-      & .btn,
-      & .price {
-        margin: 0 -50px 0 0;
-      }
-    }
-  }
-
   .title {
     font-size: 24px;
   }
@@ -151,6 +130,27 @@
   .price {
     margin: 0 0 0 -50px;
   }
+
+  .item {
+    grid-gap: 0;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 80px 120px 120px 80px;
+
+    &.variant-right {
+      grid-template-columns: 1fr 1fr;
+      border-radius: 120px 80px 80px 120px;
+
+      & .image {
+        margin: -70px 0 0 70px;
+      }
+
+      & .content,
+      & .btn,
+      & .price {
+        margin: 0 -50px 0 0;
+      }
+    }
+  }
 }
 
 @media (width < 1280px) {
@@ -172,6 +172,30 @@
 }
 
 @media (width < 1024px) {
+  .image {
+    margin: -70px 0 20px;
+  }
+
+  .content {
+    margin: 0;
+  }
+
+  .location {
+    margin: 0 0 30px;
+  }
+
+  .price {
+    margin: 0 0 20px;
+  }
+
+  .btn {
+    margin: 0 30px;
+
+    & button {
+      width: 100%;
+    }
+  }
+
   .item {
     display: block;
     padding: 20px 20px 40px;
@@ -196,30 +220,6 @@
           width: 100%;
         }
       }
-    }
-  }
-
-  .image {
-    margin: -70px 0 20px;
-  }
-
-  .content {
-    margin: 0;
-  }
-
-  .location {
-    margin: 0 0 30px;
-  }
-
-  .price {
-    margin: 0 0 20px;
-  }
-
-  .btn {
-    margin: 0 30px;
-
-    & button {
-      width: 100%;
     }
   }
 }

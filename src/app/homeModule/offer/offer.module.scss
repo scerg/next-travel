@@ -1,15 +1,19 @@
 .offer {
-  margin: 200px 0;
   position: relative;
+  margin: 200px 0;
 
-  &:before {
+  &::before {
     content: " ";
-    display: block;
+
     position: absolute;
-    left: 0;
     top: -150px;
+    left: 0;
+
+    display: block;
+
     width: 100%;
     height: 100%;
+
     opacity: 0.5;
     background-image: url("/map.svg");
     background-repeat: no-repeat;
@@ -26,11 +30,13 @@
 }
 
 .form {
+  position: relative;
+
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+
   max-width: 1020px;
-  position: relative;
 }
 
 .content {
@@ -78,7 +84,7 @@
 
 @media (width < 1280px) {
   .offer {
-    &:before {
+    &::before {
       background-position: right center;
     }
   }
@@ -86,9 +92,9 @@
 
 @media (width <= 1024px) {
   .offer {
-    margin: 100px 0 440px 0;
+    margin: 100px 0 440px;
 
-    &:before {
+    &::before {
       top: 100%;
       background-position: center center;
     }
@@ -108,7 +114,7 @@
 
 @media (width < 768px) {
   .offer {
-    &:before {
+    &::before {
       top: 70%;
     }
   }
