@@ -1,10 +1,11 @@
+import H1 from "@/app/components/h1/h1";
 import Link from "next/link";
 import React, { FC } from "react";
 
 const NotFound: FC = () => {
   return (
     <section>
-      <h1>Страница не найдена</h1>
+      <H1>Страница не найдена</H1>
       <p>
         <Link href="/news">Новости</Link>
       </p>

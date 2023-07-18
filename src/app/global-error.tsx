@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/app/components/button/button";
+import H1 from "@/app/components/h1/h1";
 import React, { FC } from "react";
 
 const GlobalError: FC<{ error: Error; reset: () => void }> = ({ reset }) => {
@@ -9,7 +10,7 @@ const GlobalError: FC<{ error: Error; reset: () => void }> = ({ reset }) => {
       <body>
         <div className="wrapper">
           <section>
-            <h1>Что-то пошло не так!</h1>
+            <H1>Что-то пошло не так!</H1>
             <Button
               title="Попробуйте еще раз"
               color="purple"

@@ -20,12 +20,12 @@
   font-weight: 400;
   font-style: normal;
   line-height: 130%;
-  color: $grey;
+  color: $darkGrey;
   letter-spacing: 0.14px;
 }
 
 .title {
-  padding: 20px 0;
+  padding: 10px 0 20px 0;
   font-style: normal;
   line-height: 130%;
 }
@@ -103,6 +103,7 @@
     }
   }
 
+  .variant-big:last-child,
   .variant-small:last-child {
     grid-column: 1 / span 2;
   }

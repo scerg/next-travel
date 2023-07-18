@@ -16,21 +16,41 @@ $navHeight: 80px;
   }
 }
 
+.h1 {
+  font-size: 64px;
+  padding: 0 0 48px;
+}
+
 .items {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 20px 0;
+  padding: 29px 0;
 
   color: $white;
   list-style: none;
 
   & li {
-    padding: 10px 40px;
     font-size: $fontSize;
     line-height: 130%;
     letter-spacing: 0.17px;
+  }
+
+  & a {
+    padding: 27px 40px;
+    border-bottom: 3px solid transparent;
+    transition: all ease-out 0.2s;
+
+    &.linkActive {
+      border-color: $darkBlue;
+    }
+  }
+
+  & .logo {
+    padding: 0;
+    margin: -25px 0;
+    display: block;
   }
 }
 

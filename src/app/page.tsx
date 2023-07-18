@@ -4,8 +4,8 @@ import Faq from "@/app/homeModule/faq/faq";
 import News from "@/app/homeModule/news/news";
 import Offer from "@/app/homeModule/offer/offer";
 import Reviews from "@/app/homeModule/reviews/reviews";
-import { AccordionItemProps } from "@/app/interfaces/components.interface";
 import { ExcursionItemProps } from "@/app/interfaces/excursions.interface";
+import { FaqProps } from "@/app/interfaces/faq.interface";
 import { HomeItemProps } from "@/app/interfaces/homeModule.interface";
 import { NewsItemProps } from "@/app/interfaces/news.interface";
 import { ReviewsProps } from "@/app/interfaces/reviews.interface";
@@ -15,7 +15,9 @@ import React from "react";
 
 async function getHome(): Promise<{ data: HomeItemProps[] }> {
   const path = API.homePage.homes;
-  const urlParamsObject = { populate: "deep" };
+  const urlParamsObject = {
+    populate: ["title", "items.picture"],
+  };
   return await fetchAPI(path, urlParamsObject);
 }
 
@@ -24,11 +26,7 @@ async function getExcursions(): Promise<{
 }> {
   const path = API.excursionsPage.excursions;
   const urlParamsObject = {
-    populate: {
-      image: { populate: "*" },
-      cities: { populate: "h1" },
-      price: { populate: "*" },
-    },
+    populate: ["h1", "slug", "text_small", "image", "cities", "price"],
   };
   return await fetchAPI(path, urlParamsObject);
 }
@@ -48,17 +46,16 @@ async function getNews(): Promise<{
 }> {
   const path = API.newsPage.news;
   const urlParamsObject = {
-    populate: {
-      image: { fields: ["url", "width", "height"] },
-    },
+    sort: ["id:desc"],
+    populate: ["h1", "slug", "text_small", "image"],
   };
   return await fetchAPI(path, urlParamsObject);
 }
 
-async function getFaq(): Promise<{ data: { items: AccordionItemProps[] } }> {
+async function getFaq(): Promise<{ data: Omit<FaqProps, "seo"> }> {
   const path = API.faqPage.page;
   const urlParamsObject = {
-    populate: ["items"],
+    populate: ["h1", "text", "items"],
   };
   return await fetchAPI(path, urlParamsObject);
 }

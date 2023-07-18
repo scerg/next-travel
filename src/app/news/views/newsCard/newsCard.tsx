@@ -8,10 +8,10 @@ import React, { FC } from "react";
 
 import styles from "./newsCard.module.scss";
 
-const NewsCard: FC<{ data: NewsItemProps; variant: string }> = ({
-  data: { h1, slug, updatedAt, text_small, image },
-  variant,
-}) => {
+const NewsCard: FC<{
+  data: NewsItemProps;
+  variant: "variant-big" | "variant-small";
+}> = ({ data: { h1, slug, updatedAt, text_small, image }, variant }) => {
   return (
     <Link href={`/news/${slug}`} className={clsx(styles.link, styles[variant])}>
       {image && (

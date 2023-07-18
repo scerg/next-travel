@@ -13,7 +13,7 @@ import styles from "../../excursionForm.module.scss";
 interface ExcursionFormSelectProps {
   name: string;
   title: string;
-  data: ExcursionsFiltersProps[];
+  data: ExcursionsFiltersProps[] & MarksProps[];
 }
 
 interface MarksProps {
@@ -48,7 +48,7 @@ const ExcursionFormSelect: FC<ExcursionFormSelectProps> = ({
               aria-label={`${name}-label`}
               aria-labelledby={`${name}-label`}
               step={null}
-              marks={data as MarksProps[]}
+              marks={data}
               onChange={(_, value) => setValue(name, value)}
               value={field.value || defaultValue}
             />

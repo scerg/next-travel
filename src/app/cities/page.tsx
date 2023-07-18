@@ -1,11 +1,12 @@
 import Breadcrumbs from "@/app/components/breadcrumbs/breadcrumbs";
+import H1 from "@/app/components/h1/h1";
+import RichText from "@/app/components/richText/richText";
 import { CityProps } from "@/app/interfaces/city.interface";
 import { SeoProps } from "@/app/interfaces/components.interface";
 import { API } from "@/app/utils/api";
 import { fetchAPI } from "@/app/utils/fetch-api";
 import { getChunk, getMetadata } from "@/app/utils/helpers";
 import type { Metadata } from "next";
-import Link from "next/link";
 import React from "react";
 
 import styles from "./page.module.scss";
@@ -57,19 +58,21 @@ const Cities = async (): Promise<JSX.Element> => {
   return (
     <section>
       <Breadcrumbs>
-        <Link href="/">Главная</Link> - {h1}
+        <span>{h1}</span>
       </Breadcrumbs>
-      <h1>{h1}</h1>
-      <div className={styles.text}>{text}</div>
+      <H1>{h1}</H1>
       <div className={styles.cities}>
         {citiesChunk.length > 0 &&
           citiesChunk.map((chunk, i) => (
             <div className={styles.items} key={i}>
-              {chunk.map((item: CityProps) => (
+              {chunk.map((item) => (
                 <CityCard key={item.id} data={item} />
               ))}
             </div>
           ))}
+      </div>
+      <div className={styles.text}>
+        <RichText data={{ body: text }} />
       </div>
     </section>
   );

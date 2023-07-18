@@ -1,6 +1,6 @@
 "use client";
 
-import { AccordionItemProps } from "@/app/interfaces/components.interface";
+import { FaqItemProps } from "@/app/interfaces/faq.interface";
 import { getDataHalf } from "@/app/utils/helpers";
 import clsx from "clsx";
 import React, { FC, useState } from "react";
@@ -8,7 +8,7 @@ import React, { FC, useState } from "react";
 import styles from "./accordion.module.scss";
 
 const Item: FC<{
-  item: AccordionItemProps;
+  item: FaqItemProps;
   expanded: number;
   handleClick: (_id: number) => void;
 }> = ({ item, expanded, handleClick }) => (
@@ -37,7 +37,7 @@ const Item: FC<{
   </div>
 );
 
-const Accordion: FC<{ data: AccordionItemProps[] }> = ({ data }) => {
+const Accordion: FC<{ data: FaqItemProps[] }> = ({ data }) => {
   const { part1 = [], part2 = [] } = getDataHalf(data) || {};
 
   const [expanded, setExpanded] = useState<number>(1);

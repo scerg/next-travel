@@ -1,12 +1,13 @@
 import Breadcrumbs from "@/app/components/breadcrumbs/breadcrumbs";
+import H1 from "@/app/components/h1/h1";
+import RichText from "@/app/components/richText/richText";
 import { SeoProps } from "@/app/interfaces/components.interface";
 import { API } from "@/app/utils/api";
 import { fetchAPI } from "@/app/utils/fetch-api";
+import { getMetadata } from "@/app/utils/helpers";
 import type { Metadata } from "next";
-import Link from "next/link";
 import React from "react";
 
-import { getMetadata } from "../utils/helpers";
 import styles from "./page.module.scss";
 
 interface AboutPageProps {
@@ -37,10 +38,12 @@ const About = async (): Promise<JSX.Element> => {
   return (
     <section>
       <Breadcrumbs>
-        <Link href="/">Главная</Link> - {h1}
+        <span>{h1}</span>
       </Breadcrumbs>
-      <h1>{h1}</h1>
-      <div className={styles.text}>{text}</div>
+      <H1>{h1}</H1>
+      <div className={styles.text}>
+        <RichText data={{ body: text }} />
+      </div>
     </section>
   );
 };

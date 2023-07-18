@@ -4,7 +4,6 @@ import { API } from "@/app/utils/api";
 import { fetchAPI } from "@/app/utils/fetch-api";
 import { getMetadata } from "@/app/utils/helpers";
 import type { Metadata } from "next";
-import Link from "next/link";
 import React from "react";
 
 import { getExcursionsAllFilters } from "./utils/filters-api";
@@ -40,7 +39,7 @@ export default async function Excursions(): Promise<JSX.Element | null> {
   return (
     <section>
       <Breadcrumbs>
-        <Link href="/">Главная</Link> - {h1}
+        <span>{h1}</span>
       </Breadcrumbs>
       <ExcursionForm h1={h1} dataForm={dataForm} />
       <div>{text}</div>

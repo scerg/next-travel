@@ -18,15 +18,14 @@
 
 .excursionsFormItemsSelects {
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(5, 1fr);
-
-  margin: 0 0 20px;
+  grid-template-columns: repeat(5, 20%);
 
   text-align: left;
+  margin: 0 -10px 20px -10px;
 
   & .excursionsFormItem {
-    max-width: 320px;
+    width: auto;
+    margin: 0 10px;
   }
 }
 
@@ -190,4 +189,93 @@
 .excursionsFormResult {
   position: relative;
   min-height: 500px;
+}
+
+@media (width <= 1700px) {
+  .excursionsFormMap {
+    bottom: -94%;
+  }
+}
+
+@media (width < 1280px) {
+  .excursionsFormItemsSelects {
+    grid-template-columns: repeat(3, 33.33%);
+  }
+
+  .excursionsFormMap {
+    bottom: -60%;
+  }
+}
+
+@media (width < 1024px) {
+  .excursionsFormMap {
+    display: none;
+  }
+
+  .excursionsFormChips {
+    padding-bottom: 30px;
+  }
+
+  .excursionsFormFilters {
+    min-height: auto;
+  }
+}
+
+@media (width < 768px) {
+  .excursionsFormItemsSelects {
+    grid-template-columns: 1fr;
+  }
+
+  .excursionsFormSelect {
+    font-size: 12px;
+
+    & :global {
+      & .MuiSvgIcon-root {
+        right: 10px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .excursionsFormLabel {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .excursionsFormItem {
+    & :global {
+      & .MuiOutlinedInput-input {
+        padding: 8px 10px;
+      }
+
+      & .MuiSelect-select.MuiSelect-multiple {
+        padding-right: 35px;
+      }
+
+      & .MuiSlider-root {
+        margin: 4px 20px 30px 20px;
+      }
+
+      & .MuiSlider-markLabel {
+        &[data-index="0"] {
+          transform: translateX(-50%);
+        }
+
+        &[data-index="2"] {
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
+  .excursionsFormItemsSliders {
+    display: block;
+    margin: 0 0 30px;
+
+    & .excursionsFormItem {
+      grid-template-columns: 100px 1fr;
+      margin-right: 0;
+    }
+  }
 }

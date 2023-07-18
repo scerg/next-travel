@@ -9,8 +9,8 @@ import type { Metadata } from "next";
 import React, { Suspense } from "react";
 
 import "./globals.scss";
-import inter from "./shared/fonts";
-import ThemeProvider from "./shared/themeProvider";
+import { inter } from "./shared/fonts";
+import Provider from "./shared/provider";
 
 async function getHomePage(): Promise<HomePageProps> {
   const path = API.homePage.page;
@@ -36,7 +36,7 @@ export default async function RootLayout({
   return (
     <html lang="ru">
       <body className={inter.className}>
-        <ThemeProvider>
+        <Provider>
           <div className="wrapper">
             <Header data={data} />
             <main>{children}</main>
@@ -45,7 +45,7 @@ export default async function RootLayout({
               <NavigationEvents />
             </Suspense>
           </div>
-        </ThemeProvider>
+        </Provider>
       </body>
     </html>
   );

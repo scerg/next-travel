@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
-import inter from "./fonts";
+import { inter } from "./fonts";
 import variables from "./variables-export.module.scss";
 
 const {
@@ -8,11 +8,9 @@ const {
   dark,
   purple,
   darkPurple,
-  //blue,
   darkBlue,
   lightBlue,
   sand,
-  //star,
   grey,
   fontSize: fS,
 } = variables;

@@ -1,5 +1,6 @@
 "use client";
 
+import H1 from "@/app/components/h1/h1";
 import Loader from "@/app/components/loader/loader";
 import {
   ExcursionsFormDefaultProps,
@@ -141,11 +142,11 @@ const ExcursionForm: FC<{
         </div>
       </FormProvider>
       <div className={styles.excursionsFormResult}>
-        <h1>{h1}</h1>
+        <H1>{h1}</H1>
         {data && data.data?.length > 0 ? (
           <ExcursionCards data={data.data} />
         ) : (
-          isSuccess && "Нет данных"
+          isSuccess && "Ничего не найдено. Пожалуйста, выберите другое фильтры"
         )}
         {(isLoading || isPreviousData) && <Loader />}
       </div>

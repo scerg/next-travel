@@ -9,10 +9,12 @@ import React, { FC } from "react";
 
 import styles from "./excursionCard.module.scss";
 
-const ExcursionCard: FC<{ data: ExcursionItemProps; variant: string }> = ({
+const ExcursionCard: FC<{
+  data: ExcursionItemProps;
+  variant: "variant-left" | "variant-right";
+}> = ({
   data: {
     h1,
-    slug,
     text_small,
     image,
     cities,
@@ -56,9 +58,7 @@ const ExcursionCard: FC<{ data: ExcursionItemProps; variant: string }> = ({
         {count}
       </div>
       <div className={styles.btn}>
-        <Link href={`/excursions/${slug}`} className={styles.link}>
-          <Button title="Подробнее" color="lightBlue" />
-        </Link>
+        <Button title="Подробнее" color="lightBlue" />
       </div>
     </div>
   );

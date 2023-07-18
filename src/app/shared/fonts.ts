@@ -1,8 +1,9 @@
 import { Inter } from "next/font/google";
+import { Balsamiq_Sans } from "next/font/google";
 
-const inter = Inter({
+export const inter = Inter({
   subsets: ["cyrillic", "latin"],
   fallback: ["Helvetica", "Arial", "sans-serif"],
 });
 
-export default inter;
+export const balsamiq = Balsamiq_Sans({ subsets: ["cyrillic"], weight: "700" });

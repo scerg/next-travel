@@ -12,12 +12,6 @@ export interface RichTextProps {
   body: string;
 }
 
-export interface AccordionItemProps {
-  id: number;
-  title: string;
-  text: string;
-}
-
 export interface LinksProps {
   id: number;
   url: string;
@@ -35,4 +29,9 @@ export interface SeoProps {
     metaTitle: string;
     metaDescription: string;
   } | null;
+}
+
+export interface MetadataProps {
+  title: string | undefined;
+  description: string | undefined;
 }

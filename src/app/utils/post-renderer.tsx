@@ -1,8 +1,7 @@
 import Media from "@/app/components/media/media";
 import RichText from "@/app/components/richText/richText";
+import { BlocksProps } from "@/app/interfaces/components.interface";
 import React from "react";
-
-import { BlocksProps } from "../interfaces/components.interface";
 
 export function postRenderer(
   section: BlocksProps,

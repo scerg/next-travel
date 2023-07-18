@@ -1,15 +1,14 @@
 "use client";
 
 import Button from "@/app/components/button/button";
+import H1 from "@/app/components/h1/h1";
 import { HomePageProps } from "@/app/interfaces/home.interface";
-import { Balsamiq_Sans } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { FC, useRef } from "react";
 
 import styles from "./header.module.scss";
-
-const balsamiq = Balsamiq_Sans({ subsets: ["cyrillic"], weight: "700" });
 
 const Header: FC<Omit<HomePageProps, "seo">> = ({ data }) => {
   const { navbar, h1, h2, h3 } = data || {};
@@ -22,24 +21,34 @@ const Header: FC<Omit<HomePageProps, "seo">> = ({ data }) => {
   };
 
   const path = usePathname();
+  const curPath = "/" + path.split("/")[1];
 
   return (
     <header className={styles.header}>
-      {links?.length && (
-        <nav className={styles.nav}>
-          <ul className={styles.items}>
-            {links.map((item) => (
+      <nav className={styles.nav}>
+        <ul className={styles.items}>
+          <li>
+            <Link href="/" className={styles.logo}>
+              <Image src="/logo.svg" width={64} height={64} alt="" priority />
+            </Link>
+          </li>
+          {links?.length &&
+            links.map((item) => (
               <li key={item.id}>
-                <Link href={item.url}>{item.text}</Link>
+                <Link
+                  href={item.url}
+                  className={curPath === item.url ? styles.linkActive : ""}
+                >
+                  {item.text}
+                </Link>
               </li>
             ))}
-          </ul>
-        </nav>
-      )}
-      {path === "/" && (
+        </ul>
+      </nav>
+      {curPath === "/" && (
         <>
           <div className={styles.text}>
-            <h1 className={balsamiq.className}>{h1}</h1>
+            <H1 className={styles.h1}>{h1}</H1>
             {h2 && <h2>{h2}</h2>}
             {h3 && <h3>{h3}</h3>}
             <Button title="Начать" color="purple" onClick={scrollTo} />

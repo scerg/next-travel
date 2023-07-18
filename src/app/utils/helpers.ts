@@ -1,19 +1,14 @@
-import { SeoProps } from "@/app/interfaces/components.interface";
+import { MetadataProps, SeoProps } from "@/app/interfaces/components.interface";
 
-interface MetadataReturn {
-  title: string | undefined;
-  description: string | undefined;
-}
-
-export function getMetadata(meta: { data: SeoProps }): MetadataReturn {
+export function getMetadata(meta: { data: SeoProps }): MetadataProps {
   const metadataDefault = {
     title: "Северный Кипр - Путешествия. Туры. Экскурсии.",
     description: "Агрегатор туров и экскурсий по Северному Кипру",
   };
 
-  if (!meta?.data?.seo) return metadataDefault;
+  const { seo } = meta?.data || {};
+  if (!seo) return metadataDefault;
 
-  const { seo } = meta.data;
   const result = {
     title: seo?.metaTitle,
     description: seo?.metaDescription,
@@ -51,10 +46,11 @@ export function formatDate(dateString: string): string {
 }
 
 export function getDataHalf<T>(
-  data: Array<T>
+  data: Array<T>,
+  length?: number | undefined
 ): { part1: T[]; part2: T[] } | null {
   if (data?.length > 0) {
-    const dataHalf = Math.round(data.length / 2);
+    const dataHalf = length || Math.round(data.length / 2);
     const part1 = data.slice(0, dataHalf);
     const part2 = data.slice(dataHalf);
 

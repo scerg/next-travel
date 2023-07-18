@@ -14,7 +14,7 @@ const cache = createCache({
   prepend: true,
 });
 
-export default function AppThemeProvider(props: { children: React.ReactNode }) {
+export default function AppProvider(props: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
   const { children } = props;
   return (

@@ -1,6 +1,6 @@
 .excursionsItems {
   display: grid;
-  grid-gap: 100px;
+  grid-gap: 100px 70px;
   grid-template-columns: repeat(2, 1fr);
   text-align: left;
 }
@@ -25,6 +25,7 @@
 @media (width < 768px) {
   .excursionsItems {
     display: block;
+    margin-top: -25px;
   }
 
   .items {

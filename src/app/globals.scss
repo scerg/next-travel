@@ -45,11 +45,16 @@ main {
     opacity: 0.4;
     background: linear-gradient(180deg, #fff 0%, #ffeee9 85.21%);
   }
-}
 
-main ul li::marker {
-  font-size: 1.5em;
-  color: $purple;
+  & ol,
+  & ul {
+    padding: 0 0 0 20px;
+  }
+
+  & ul li::marker {
+    font-size: 1.5em;
+    color: $purple;
+  }
 }
 
 section {
@@ -62,8 +67,8 @@ a {
 }
 
 h1 {
-  padding: 0 0 48px;
-  font-size: 64px;
+  padding: 0 0 20px;
+  font-size: 54px;
   line-height: 100%;
 }
 
@@ -157,4 +162,7 @@ input {
 }
 
 @media (width < 768px) {
+  h1 {
+    font-size: 30px;
+  }
 }

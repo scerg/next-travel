@@ -24,3 +24,17 @@
     }
   }
 }
+
+@media (width < 768px) {
+  .excursionsFormChip {
+    & :global {
+      & .MuiChip-label {
+        padding: 4px 10px;
+      }
+
+      & .MuiChip-deleteIcon {
+        margin-right: 5px;
+      }
+    }
+  }
+}
