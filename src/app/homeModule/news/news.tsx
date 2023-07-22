@@ -12,18 +12,12 @@ const settings = {
   arrows: true,
   centerMode: true,
   centerPadding: "0px",
-  slidesToShow: 5,
+  slidesToShow: 3,
   infinite: true,
   slidesToScroll: 1,
-  speed: 200,
+  speed: 400,
   className: styles.newsSlider,
   responsive: [
-    {
-      breakpoint: 1280,
-      settings: {
-        slidesToShow: 3,
-      },
-    },
     {
       breakpoint: 1024,
       settings: {
@@ -65,9 +59,11 @@ const News: FC<{ data: NewsItemProps[] }> = ({ data }) => {
                   />
                 </div>
               )}
-              <div className={`${styles.title} news-title`}>{item.h1}</div>
-              <div className={`${styles.text} news-text`}>
-                {item.text_small}
+              <div className={styles.info}>
+                <div className={`${styles.title} news-title`}>{item.h1}</div>
+                <div className={`${styles.text} news-text`}>
+                  {item.text_small}
+                </div>
               </div>
             </div>
           </Link>

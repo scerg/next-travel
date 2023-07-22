@@ -6,9 +6,12 @@
   margin: 40px 0;
 
   & img {
-    max-width: 450px;
     border-radius: 120px 120px 50px 50px;
   }
+}
+
+.info {
+  height: 100px;
 }
 
 .title {
@@ -28,12 +31,12 @@
 }
 
 .newsSlider {
-  margin: 0 -120px;
+  margin: 0 auto;
 }
 
 .image {
   position: relative;
-  height: 500px;
+  height: 400px;
 
   & img {
     object-fit: cover;
@@ -49,6 +52,10 @@
 @media (width < 1024px) {
   .image {
     height: 350px;
+  }
+
+  .info {
+    height: auto;
   }
 }
 

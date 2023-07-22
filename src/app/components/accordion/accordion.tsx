@@ -3,18 +3,50 @@
 import { FaqItemProps } from "@/app/interfaces/faq.interface";
 import { getDataHalf } from "@/app/utils/helpers";
 import clsx from "clsx";
+import { Variants, motion } from "framer-motion";
 import React, { FC, useState } from "react";
 
 import styles from "./accordion.module.scss";
+
+const variants: Variants = {
+  visible: {
+    marginBottom: 26,
+  },
+  hidden: {
+    marginBottom: 0,
+  },
+};
+
+const variantsChildren: Variants = {
+  visible: {
+    opacity: 1,
+    height: "100%",
+    padding: "0 0 12px 40px",
+    lineHeight: "130%",
+    x: 0,
+  },
+  hidden: {
+    opacity: 0,
+    height: 0,
+    padding: 0,
+    lineHeight: 0,
+    x: "-10%",
+  },
+};
 
 const Item: FC<{
   item: FaqItemProps;
   expanded: number;
   handleClick: (_id: number) => void;
 }> = ({ item, expanded, handleClick }) => (
-  <div
+  <motion.div
     key={item.id}
     className={clsx(styles.item, expanded === item.id && styles.itemActive)}
+    layout
+    variants={variants}
+    initial={expanded === item.id ? "visible" : "hidden"}
+    animate={expanded === item.id ? "visible" : "hidden"}
+    transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
   >
     <div className={styles.question} onClick={() => handleClick(item.id)}>
       {item.title}
@@ -33,8 +65,10 @@ const Item: FC<{
         </g>
       </svg>
     </div>
-    {expanded === item.id && <div className={styles.answer}>{item.text}</div>}
-  </div>
+    <motion.div className={styles.answer} variants={variantsChildren}>
+      {item.text}
+    </motion.div>
+  </motion.div>
 );
 
 const Accordion: FC<{ data: FaqItemProps[] }> = ({ data }) => {

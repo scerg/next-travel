@@ -4,16 +4,13 @@
 }
 
 .excursionsFormMap {
-  position: absolute;
+  position: relative;
   z-index: -1;
-  bottom: -114%;
-  left: 0;
 
   width: 100%;
+  margin-top: -14%;
 
   text-align: right;
-
-  transition: all ease-out 0.2s;
 }
 
 .excursionsFormItem {
@@ -188,27 +185,22 @@
 .excursionsFormResult {
   position: relative;
   min-height: 500px;
-}
-
-@media (width <= 1700px) {
-  .excursionsFormMap {
-    bottom: -94%;
-  }
+  margin-top: -24%;
 }
 
 @media (width < 1280px) {
   .excursionsFormItemsSelects {
     grid-template-columns: repeat(3, 33.33%);
   }
-
-  .excursionsFormMap {
-    bottom: -60%;
-  }
 }
 
 @media (width < 1024px) {
   .excursionsFormMap {
     display: none;
+  }
+
+  .excursionsFormResult {
+    margin-top: 0;
   }
 
   .excursionsFormChips {
@@ -222,7 +214,7 @@
 
 @media (width < 768px) {
   .excursionsFormItemsSelects {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
   }
 
   .excursionsFormSelect {

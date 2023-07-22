@@ -11,10 +11,12 @@ const settings = {
   arrows: true,
   dots: false,
   infinite: true,
-  speed: 200,
+  speed: 400,
   slidesToShow: 1,
   centerMode: true,
   variableWidth: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
   className: styles.reviewsSlider,
   responsive: [
     {
@@ -54,7 +56,7 @@ const Reviews: FC<{ data: ReviewsProps[] }> = ({ data }) => {
                   <div
                     className={clsx(
                       styles.stars,
-                      styles[`star-${item.rating}`]
+                      styles[`star-${item.rating}`],
                     )}
                   ></div>
                 </div>

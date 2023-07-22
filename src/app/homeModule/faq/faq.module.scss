@@ -1,0 +1,9 @@
+.faq {
+  min-height: 400px;
+}
+
+@media (width <= 1024px) {
+  .faq {
+    min-height: 450px;
+  }
+}

@@ -66,7 +66,7 @@ const Cities = async (): Promise<JSX.Element> => {
           citiesChunk.map((chunk, i) => (
             <div className={styles.items} key={i}>
               {chunk.map((item) => (
-                <CityCard key={item.id} data={item} />
+                <CityCard key={item.id} data={item} i={i} />
               ))}
             </div>
           ))}

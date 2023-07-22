@@ -5,7 +5,7 @@
 }
 
 .item {
-  margin: 0 0 26px;
+  overflow: hidden;
   border-bottom: 1px solid rgba($sand, 0.5);
 
   & svg {
@@ -29,9 +29,8 @@
 }
 
 .answer {
-  padding: 0 0 12px 40px;
   font-size: $fontSize;
-  line-height: 130%;
+  line-height: 0;
   letter-spacing: 0.17px;
 }
 

@@ -53,6 +53,10 @@
   & img {
     margin: 0 5px 0 0;
   }
+
+  & a {
+    transition: all ease-out 0.2s;
+  }
 }
 
 .btn {
@@ -69,10 +73,11 @@
 
   text-align: center;
 
+  background: $white;
   border: 1px solid rgba($sand, 0.5);
   border-radius: 80px 160px 160px 80px;
 
-  &.variant-right {
+  &.right {
     grid-template-columns: 1fr 308px;
     border-radius: 160px 80px 80px 160px;
 
@@ -136,7 +141,7 @@
     grid-template-columns: 1fr 1fr;
     border-radius: 80px 120px 120px 80px;
 
-    &.variant-right {
+    &.right {
       grid-template-columns: 1fr 1fr;
       border-radius: 120px 80px 80px 120px;
 
@@ -161,7 +166,7 @@
   }
 
   .item {
-    &.variant-right {
+    &.right {
       & .image {
         & img {
           border-radius: 80px;
@@ -200,7 +205,7 @@
     display: block;
     padding: 20px 20px 40px;
 
-    &.variant-right {
+    &.right {
       & .image {
         margin: -70px 0 20px;
       }

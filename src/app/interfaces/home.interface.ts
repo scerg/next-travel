@@ -5,7 +5,7 @@ export interface HomePageProps {
     h1: string;
     h2?: string;
     h3?: string;
-    navbar: {
+    navbar?: {
       links: LinksProps[];
     };
     seo: SeoProps["seo"];

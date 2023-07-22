@@ -6,6 +6,8 @@ export interface ImageProps {
   width: number;
   height: number;
   priority?: boolean | undefined;
+  placeholder?: "blur" | "empty" | undefined;
+  blurDataURL?: string | undefined;
 }
 
 export interface RichTextProps {

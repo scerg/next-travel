@@ -13,6 +13,8 @@
   border: none;
   border-radius: 20px;
 
+  transition: all ease-out 0.2s;
+
   &:active {
     background: $sand;
   }

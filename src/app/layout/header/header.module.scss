@@ -1,24 +1,59 @@
-$navHeight: 80px;
-
 .header {
-  background: #51bccc;
+  background: linear-gradient(180deg, #4ebbc5 0%, #d5eef2 100%);
 
-  & nav {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: $navHeight;
-
-    background: #51bccc;
+  & :global {
+    & .ref {
+      position: relative;
+      top: -$navHeight;
+    }
   }
 }
 
-.h1 {
-  padding: 0 0 48px;
-  font-size: 64px;
+.head {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: $navHeight;
+
+  background: $white;
+  border-bottom: 1px solid rgba(#51bccc, 0.5);
+}
+
+.center {
+  display: grid;
+  grid-template-columns: 130px auto 130px;
+  align-items: center;
+
+  width: $maxWidth;
+  margin: 0 auto;
+}
+
+.logo {
+  position: relative;
+  z-index: 9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 130px;
+
+  font-size: 0;
+  line-height: 0;
+
+  transition: all ease-out 0.2s;
+
+  & .name {
+    padding: 18px 10px 12px;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $darkBlue;
+  }
 }
 
 .items {
@@ -28,7 +63,7 @@ $navHeight: 80px;
 
   padding: 29px 0;
 
-  color: $white;
+  color: $dark;
   list-style: none;
 
   & li {
@@ -38,35 +73,61 @@ $navHeight: 80px;
   }
 
   & a {
-    padding: 26px 40px;
+    padding: 27px 30px;
+    color: $dark;
     border-bottom: 3px solid transparent;
     transition: all ease-out 0.2s;
 
     &.linkActive {
-      border-color: $darkBlue;
+      border-color: $lightBlue;
     }
   }
+}
 
-  & .logo {
-    display: block;
-    margin: -25px 0;
-    padding: 0;
+.mobileMenu {
+  display: none;
+}
+
+@media (width <= 1700px) {
+  .center {
+    width: auto;
+    padding: 0 20px;
   }
 }
 
-.text {
-  padding: 185px 0 105px;
-  color: $white;
-  text-align: center;
-}
+@media (width < 1024px) {
+  .center {
+    grid-template-columns: 130px auto;
+    padding: 0 0 0 20px;
+  }
 
-.ref {
-  position: relative;
-  top: -$navHeight;
-}
-
-@media (width < 1280px) {
   .items li {
-    padding: 10px 20px;
+    font-size: $fontSize - 2;
+
+    & a {
+      padding: 28px 25px;
+    }
+  }
+}
+
+@media (width < 768px) {
+  .mobileMenu {
+    display: block;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo:hover {
+    opacity: 0.8;
+  }
+
+  .items {
+    & a:hover {
+      color: $lightBlue;
+
+      &.linkActive:hover {
+        color: $dark;
+      }
+    }
   }
 }

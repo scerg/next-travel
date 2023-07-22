@@ -19,6 +19,8 @@ const Media: FC<MediaProps> = ({ data: { image } }) => {
         width={image.width}
         height={image.height}
         priority={image.priority}
+        placeholder={image.placeholder}
+        blurDataURL={image.blurDataURL}
       />
     </div>
   );

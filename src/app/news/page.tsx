@@ -70,15 +70,15 @@ const News = async (): Promise<JSX.Element> => {
       <div className={styles.news}>
         {part1?.length > 0 && (
           <div className={styles.items}>
-            {part1.map((item: NewsItemProps) => (
-              <NewsCard key={item.id} data={item} variant="variant-big" />
+            {part1.map((item: NewsItemProps, i: number) => (
+              <NewsCard key={item.id} data={item} i={i} variant="big" />
             ))}
           </div>
         )}
         {part2?.length > 0 && (
           <div className={styles.items}>
-            {part2.map((item: NewsItemProps) => (
-              <NewsCard key={item.id} data={item} variant="variant-small" />
+            {part2.map((item: NewsItemProps, i: number) => (
+              <NewsCard key={item.id} data={item} i={i} variant="small" />
             ))}
           </div>
         )}

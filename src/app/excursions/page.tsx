@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import React from "react";
 
 import { getExcursionsAllFilters } from "./utils/filters-api";
-import ExcursionForm from "./views/ExcursionForm";
+import ExcursionForm from "./views/excursionForm";
 
 interface ExcursionsPageProps {
   data: {

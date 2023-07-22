@@ -4,10 +4,13 @@
 
 .image {
   position: relative;
+  overflow: hidden;
+  border-radius: 80px;
 
   & img {
     object-fit: cover;
     border-radius: 80px;
+    transition: all ease-out 0.2s;
   }
 }
 
@@ -38,7 +41,7 @@
   letter-spacing: 0.17px;
 }
 
-.variant-big {
+.big {
   display: block;
 
   .image {
@@ -59,7 +62,7 @@
   }
 }
 
-.variant-small {
+.small {
   display: block;
 
   .image {
@@ -79,8 +82,8 @@
 }
 
 @media (width < 1024px) {
-  .variant-big,
-  .variant-small {
+  .big,
+  .small {
     .image {
       height: 260px;
     }
@@ -103,8 +106,18 @@
     }
   }
 
-  .variant-big:last-child,
-  .variant-small:last-child {
+  .big:last-child,
+  .small:last-child {
     grid-column: 1 / span 2;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    & .image {
+      & img {
+        transform: scale(1.07);
+      }
+    }
   }
 }

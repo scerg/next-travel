@@ -11,7 +11,9 @@ import { API } from "@/app/utils/api";
 import { fetchAPI } from "@/app/utils/fetch-api";
 import { debounce } from "@/app/utils/helpers";
 import Link from "@mui/material/Link";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { useQuery } from "@tanstack/react-query";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { FC, useCallback, useEffect, useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
@@ -41,7 +43,7 @@ const ExcursionForm: FC<{
   const hasSelects = checkFilledSelects(currentValues.selects);
 
   const getExcursions = async (
-    filters: { $and?: ExcursionsFormFilterDataProps[] } = {}
+    filters: { $and?: ExcursionsFormFilterDataProps[] } = {},
   ) => {
     const path = API.excursionsPage.excursions;
     let urlParamsObject = {
@@ -69,7 +71,7 @@ const ExcursionForm: FC<{
       const filters = getFilters(data, sliders);
       setFilters(() => filters);
     },
-    [sliders]
+    [sliders],
   );
 
   useEffect(() => {
@@ -78,14 +80,14 @@ const ExcursionForm: FC<{
     return () => subscription.unsubscribe();
   }, [watch, handleSubmit, onSubmit]);
 
-  const excursions = useQuery({
+  const { data, isLoading, isSuccess, isPreviousData } = useQuery({
     queryKey: ["excursions", filters],
     queryFn: () => getExcursions(filters),
     keepPreviousData: true,
     refetchOnWindowFocus: false,
   });
 
-  const { data, isLoading, isSuccess, isPreviousData } = excursions;
+  const notDesktop = useMediaQuery("(min-width:1024px)");
 
   return (
     <>
@@ -111,7 +113,10 @@ const ExcursionForm: FC<{
               />
             ))}
           </div>
-          <div className={styles.excursionsFormChips}>
+          <motion.div
+            layoutId="excursionsFormChips"
+            className={styles.excursionsFormChips}
+          >
             {selects.map((e, i) => (
               <ExcursionFormChips
                 key={e.id}
@@ -135,18 +140,25 @@ const ExcursionForm: FC<{
                 </Link>
               </div>
             )}
-          </div>
-          <div className={styles.excursionsFormMap}>
-            <ExcursionFormMap />
-          </div>
+          </motion.div>
+          {notDesktop && (
+            <motion.div
+              layoutId="excursionFormMap"
+              className={styles.excursionsFormMap}
+            >
+              <ExcursionFormMap />
+            </motion.div>
+          )}
         </div>
       </FormProvider>
       <div className={styles.excursionsFormResult}>
-        <H1>{h1}</H1>
+        <motion.div layoutId="excursionsFormResultH1">
+          <H1>{h1}</H1>
+        </motion.div>
         {data && data.data?.length > 0 ? (
           <ExcursionCards data={data.data} />
         ) : (
-          isSuccess && "Ничего не найдено. Пожалуйста, выберите другое фильтры"
+          isSuccess && "Ничего не найдено. Пожалуйста, выберите другие фильтры"
         )}
         {(isLoading || isPreviousData) && <Loader />}
       </div>

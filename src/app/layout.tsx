@@ -32,6 +32,8 @@ export default async function RootLayout({
 }): Promise<JSX.Element> {
   const home = await getHomePage();
   const { data } = home || {};
+  const { navbar } = data || {};
+  const { links = [] } = navbar || {};
 
   return (
     <html lang="ru">
@@ -40,7 +42,7 @@ export default async function RootLayout({
           <div className="wrapper">
             <Header data={data} />
             <main>{children}</main>
-            <Footer links={data?.navbar?.links} />
+            <Footer links={links} />
             <Suspense fallback={null}>
               <NavigationEvents />
             </Suspense>

@@ -11,15 +11,15 @@ const ExcursionCards: FC<{ data: ExcursionItemProps[] }> = ({ data }) => {
     <div className={styles.excursionsItems}>
       {part1?.length > 0 && (
         <div className={styles.items}>
-          {part1.map((item: ExcursionItemProps) => (
-            <ExcursionCard key={item.id} data={item} variant="variant-left" />
+          {part1.map((item: ExcursionItemProps, i: number) => (
+            <ExcursionCard key={item.id} data={item} i={i} variant="left" />
           ))}
         </div>
       )}
       {part2?.length > 0 && (
         <div className={styles.items}>
-          {part2.map((item: ExcursionItemProps) => (
-            <ExcursionCard key={item.id} data={item} variant="variant-right" />
+          {part2.map((item: ExcursionItemProps, i: number) => (
+            <ExcursionCard key={item.id} data={item} i={i} variant="right" />
           ))}
         </div>
       )}
