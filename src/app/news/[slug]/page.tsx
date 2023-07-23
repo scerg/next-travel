@@ -36,7 +36,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const meta = await getMetaData(params.slug);
+  const meta = await getMetaData(params?.slug);
   return getMetadata({ data: meta });
 }
 
@@ -45,7 +45,7 @@ export default async function News({
 }: {
   params: { slug: string };
 }): Promise<JSX.Element> {
-  const { slug } = params;
+  const { slug } = params || {};
   const data = await getNewsBySlug(slug);
   if (!data) notFound();
 
@@ -58,6 +58,7 @@ export async function generateStaticParams(): Promise<NewsItemProps[]> {
     populate: ["slug"],
   };
   const newsResponse = await fetchAPI(path, urlParamsObject);
+  if (!newsResponse) return [];
 
   return newsResponse.data.map((news: { slug: string }) => ({
     slug: news.slug,
