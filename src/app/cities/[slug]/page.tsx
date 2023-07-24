@@ -58,7 +58,7 @@ export async function generateStaticParams(): Promise<CityProps[]> {
     populate: ["slug"],
   };
   const citiesResponse = await fetchAPI(path, urlParamsObject);
-  if (!citiesResponse) return [];
+  if (!citiesResponse?.data) return [];
 
   return citiesResponse.data.map((cities: { slug: string }) => ({
     slug: cities.slug,

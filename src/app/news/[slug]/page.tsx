@@ -58,7 +58,7 @@ export async function generateStaticParams(): Promise<NewsItemProps[]> {
     populate: ["slug"],
   };
   const newsResponse = await fetchAPI(path, urlParamsObject);
-  if (!newsResponse) return [];
+  if (!newsResponse?.data) return [];
 
   return newsResponse.data.map((news: { slug: string }) => ({
     slug: news.slug,
