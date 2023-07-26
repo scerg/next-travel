@@ -51,8 +51,9 @@ const News: FC<{ data: NewsItemProps[] }> = ({ data }) => {
                     src={getStrapiMedia(item.image.url) || ""}
                     alt={item.image.alternativeText || ""}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 40vw, 50vw"
-                    priority
+                    sizes="(max-width: 768px) 100vw, 30vw"
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII="
                   />
                 </div>
               )}
