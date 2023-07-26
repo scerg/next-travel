@@ -11,6 +11,7 @@ export async function getExcursionsKinds(): Promise<{
   const path = API.excursionsPage.kinds;
   const urlParamsObject = {
     fields: ["name", "slug"],
+    sort: "id:asc",
   };
   return await fetchAPI(path, urlParamsObject);
 }
@@ -21,6 +22,7 @@ export async function getExcursionsCities(): Promise<{
   const path = API.cityPage.cities;
   const urlParamsObject = {
     fields: ["h1", "slug"],
+    sort: "id:asc",
   };
   return await fetchAPI(path, urlParamsObject);
 }
@@ -31,6 +33,7 @@ export async function getExcursionsDurations(): Promise<{
   const path = API.excursionsPage.durations;
   const urlParamsObject = {
     fields: ["name", "slug"],
+    sort: "id:asc",
   };
   return await fetchAPI(path, urlParamsObject);
 }
@@ -41,6 +44,7 @@ export async function getExcursionsActivities(): Promise<{
   const path = API.excursionsPage.activities;
   const urlParamsObject = {
     fields: ["name", "slug"],
+    sort: "id:asc",
   };
   return await fetchAPI(path, urlParamsObject);
 }
@@ -51,6 +55,7 @@ export async function getExcursionsGroups(): Promise<{
   const path = API.excursionsPage.groups;
   const urlParamsObject = {
     fields: ["name", "slug"],
+    sort: "id:asc",
   };
   return await fetchAPI(path, urlParamsObject);
 }
@@ -61,6 +66,7 @@ export async function getExcursionsDifficulties(): Promise<{
   const path = API.excursionsPage.difficulties;
   const urlParamsObject = {
     fields: ["name", "slug"],
+    sort: "id:asc",
   };
   return await fetchAPI(path, urlParamsObject);
 }
@@ -71,6 +77,7 @@ export async function getExcursionsAges(): Promise<{
   const path = API.excursionsPage.ages;
   const urlParamsObject = {
     fields: ["name", "slug"],
+    sort: "id:asc",
   };
   return await fetchAPI(path, urlParamsObject);
 }

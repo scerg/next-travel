@@ -6,7 +6,7 @@
 
   & img {
     object-fit: cover;
-    border-radius: 90px 160px 160px 90px;
+    border-radius: 80px 160px 160px 80px;
   }
 }
 
@@ -37,9 +37,13 @@
 }
 
 .location {
+  position: relative;
+
   display: flex;
+  flex-wrap: wrap;
 
   margin: 0 0 40px;
+  padding-left: 20px;
 
   font-weight: 200;
   font-style: italic;
@@ -51,7 +55,9 @@
   }
 
   & img {
-    margin: 0 5px 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   & a {
@@ -90,7 +96,7 @@
       margin: -70px 0 0 30px;
 
       & img {
-        border-radius: 160px 90px 90px 160px;
+        border-radius: 160px 80px 80px 160px;
       }
     }
 

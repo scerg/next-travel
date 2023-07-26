@@ -101,7 +101,8 @@ const ExcursionCard: FC<ExcursionCardProps> = ({
               src={getStrapiMedia(image.url) || ""}
               alt={image.alternativeText || ""}
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 20vw"
+              priority
             />
           </motion.div>
         )}

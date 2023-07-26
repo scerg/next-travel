@@ -57,7 +57,7 @@ const Offer: FC = () => {
       <motion.div variants={variantsMap} className={styles.map}></motion.div>
       <div className={styles.form}>
         <motion.div variants={variantsImage} className={styles.image}>
-          <Image src="/offer.jpg" width={475} height={475} alt="" />
+          <Image src="/offer.jpg" width={475} height={475} alt="" priority />
         </motion.div>
 
         <motion.div variants={variantsForm} className={styles.content}>
@@ -66,10 +66,10 @@ const Offer: FC = () => {
           </div>
           <div className={styles.elements}>
             <div className={styles.element}>
-              <input type="text" placeholder="Имя" />
+              <input type="text" name="name" placeholder="Имя" />
             </div>
             <div className={styles.element}>
-              <input type="text" placeholder="Электронная почта" />
+              <input type="text" name="email" placeholder="Электронная почта" />
             </div>
           </div>
           <div className={styles.btn}>

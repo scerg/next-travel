@@ -89,10 +89,10 @@
     }
 
     .content {
-      margin: 0 0 50px;
+      margin: -50px 0 50px;
       padding: 20px;
-      background: transparent;
-      border-radius: 0;
+      background: $white;
+      border-radius: 40px;
     }
 
     .title {

@@ -6,10 +6,11 @@ import React, { FC } from "react";
 import styles from "./faq.module.scss";
 
 const Faq: FC<{ data: FaqItemProps[] }> = ({ data }) => {
+  const faqItems = data.sort((a, b) => a.id - b.id);
   return (
     <section className={styles.faq}>
       <Title title={"Здесь вы найдете ответы на часто задаваемые вопросы"} />
-      {data?.length > 0 && <Accordion data={data} />}
+      {data?.length > 0 && <Accordion data={faqItems} />}
     </section>
   );
 };

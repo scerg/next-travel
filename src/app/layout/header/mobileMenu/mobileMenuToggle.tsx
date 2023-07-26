@@ -5,7 +5,7 @@ import { FC } from "react";
 
 const MobileMenuToggle: FC<{ toggle: () => void }> = ({ toggle }) => {
   return (
-    <button className="button" onClick={toggle}>
+    <button className="button" aria-label="Menu" onClick={toggle}>
       <svg width="23" height="23" viewBox="0 0 23 23">
         <motion.path
           variants={{

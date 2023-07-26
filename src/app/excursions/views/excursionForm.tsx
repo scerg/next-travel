@@ -158,7 +158,21 @@ const ExcursionForm: FC<{
         {data && data.data?.length > 0 ? (
           <ExcursionCards data={data.data} />
         ) : (
-          isSuccess && "Ничего не найдено. Пожалуйста, выберите другие фильтры"
+          isSuccess && (
+            <>
+              <Image
+                className={styles.excursionsFormEmpty}
+                src="/empty.jpg"
+                width={339}
+                height={200}
+                alt=""
+              />
+              <p>
+                К сожалению, пока в нашем каталоге нет нужной экскурсии, но мы
+                расширяемся и совсем скоро всё будет.
+              </p>
+            </>
+          )
         )}
         {(isLoading || isPreviousData) && <Loader />}
       </div>

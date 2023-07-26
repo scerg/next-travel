@@ -38,6 +38,7 @@ async function getCities(): Promise<CitiesProps> {
     populate: {
       cover: { populate: "*" },
     },
+    sort: "id:asc",
   };
   return await fetchAPI(path, urlParamsObject);
 }

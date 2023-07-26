@@ -27,6 +27,8 @@ export default async function Faq(): Promise<JSX.Element | null> {
   const faq = await getFaqPage();
   const { h1, text, items } = faq?.data || {};
 
+  const data = items.sort((a, b) => a.id - b.id);
+
   return (
     <section>
       <Breadcrumbs>
@@ -34,7 +36,7 @@ export default async function Faq(): Promise<JSX.Element | null> {
       </Breadcrumbs>
       <H1>{h1}</H1>
       <div className={styles.text}>{text}</div>
-      {items?.length > 0 && <Accordion data={items} />}
+      {items?.length > 0 && <Accordion data={data} />}
     </section>
   );
 }

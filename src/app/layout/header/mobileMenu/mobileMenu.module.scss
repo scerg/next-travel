@@ -38,19 +38,22 @@
 
       width: 100%;
       height: 100vh;
+      padding: 16px 0;
 
       background: $white;
     }
 
     & .li {
-      display: flex;
-      align-items: center;
-      margin: 20px;
       list-style: none;
     }
 
     & .linkActive {
       color: $lightBlue;
+    }
+
+    & a {
+      display: block;
+      padding: 16px 20px;
     }
   }
 }

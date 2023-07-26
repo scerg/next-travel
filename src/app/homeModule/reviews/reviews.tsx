@@ -50,7 +50,8 @@ const Reviews: FC<{ data: ReviewsProps[] }> = ({ data }) => {
               <div className={styles.text}>{item.description}</div>
               <div className={styles.inform}>
                 <div className={styles.info}>
-                  {item.name}, {formatDate(item.date)}
+                  <span>{item.name},</span>
+                  <span>{formatDate(item.date)}</span>
                 </div>
                 <div className={styles.starsDefault}>
                   <div

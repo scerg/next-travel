@@ -43,11 +43,7 @@ const News: FC<{ data: NewsItemProps[] }> = ({ data }) => {
       <Title title={"Актуальные новости"} />
       <SlickSlider settings={settings}>
         {data.map((item) => (
-          <Link
-            key={item.id}
-            className={`${styles.item} news-item`}
-            href={`/news/${item.slug}`}
-          >
+          <Link key={item.id} className="news-item" href={`/news/${item.slug}`}>
             <div className={styles.content}>
               {item.image && (
                 <div className={`image ${styles.image}`}>
@@ -56,6 +52,7 @@ const News: FC<{ data: NewsItemProps[] }> = ({ data }) => {
                     alt={item.image.alternativeText || ""}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 40vw, 50vw"
+                    priority
                   />
                 </div>
               )}

@@ -5,7 +5,7 @@ import { getStrapiURL } from "./helpers";
 export async function fetchAPI(
   path: string,
   urlParamsObject = {},
-  options = {}
+  options = {},
 ) {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
   if (!token)
@@ -23,7 +23,7 @@ export async function fetchAPI(
 
     const queryString = qs.stringify(urlParamsObject);
     const requestUrl = `${getStrapiURL(
-      `/api${path}${queryString ? `?${queryString}` : ""}`
+      `/api${path}${queryString ? `?${queryString}` : ""}`,
     )}`;
 
     const response = await fetch(requestUrl, mergedOptions);
@@ -33,7 +33,7 @@ export async function fetchAPI(
     if (error instanceof Error) {
       console.error(error);
       throw new Error(
-        `Please check if your server is running and you set all the required tokens.`
+        `Please check if your server is running and you set all the required tokens.`,
       );
     }
   }
