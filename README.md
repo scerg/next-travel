@@ -18,7 +18,10 @@ https://travel-trnc.vercel.app/
 
 ## Lighthouse
 
-Desktop
+#### Desktop
+
 ![desktop](https://res.cloudinary.com/di82msrpq/image/upload/v1690417393/desktop_a9vwwa.jpg)
-Mobile
+
+#### Mobile
+
 ![mobile](https://res.cloudinary.com/di82msrpq/image/upload/v1690417378/mobile_qh6hz7.jpg)
