@@ -1,0 +1,18 @@
+name: github-actions
+on: [push]
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: install project
+        run: npm install
+      - name: build project
+        run: npm run build
+      - name: lint project
+        run: npm run lint
+      - name: stylelint project
+        run: npm run stylelint
